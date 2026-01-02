@@ -3,8 +3,12 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { Eye, EyeOff, ArrowRight, Mail, Lock, Check, Sparkles } from 'lucide-react';
+import { createClient } from '@/utils/supabase/client';
+import { useRouter } from 'next/navigation';
 
 export default function SignIn() {
+  const supabase = createClient();
+  const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
@@ -35,11 +39,27 @@ export default function SignIn() {
     if (!validateForm()) return;
     
     setIsLoading(true);
-    // Simulate API call
-    setTimeout(() => {
+    setErrors({}); // Clear previous errors
+
+    try {
+      const { error } = await supabase.auth.signInWithPassword({
+        email: formData.email,
+        password: formData.password,
+      });
+
+      if (error) {
+        setErrors({ ...errors, email: error.message }); // Display error under email or generic
+        return;
+      }
+
+      router.push('/account'); // Redirect to account page
+      router.refresh(); // Refresh to update server components
+    } catch (error) {
+      console.error(error);
+      setErrors({ ...errors, email: 'An unexpected error occurred' });
+    } finally {
       setIsLoading(false);
-      // Handle sign in logic here
-    }, 1500);
+    }
   };
 
   const features = [
@@ -192,7 +212,7 @@ export default function SignIn() {
 
           {/* Sign Up Link */}
           <p className="mt-8 text-center text-sm text-neo-black/60">
-            Don't have an account?{' '}
+            Don&apos;t have an account?{' '}
             <Link href="/signup" className="font-bold text-neo-black hover:text-neo-yellow transition-colors">
               Create one free
             </Link>
