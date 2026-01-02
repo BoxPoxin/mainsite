@@ -21,9 +21,9 @@ export const metadata: Metadata = {
   description: "Consumer-focused innovation. Hardware and software products engineered for the future.",
   keywords: ["innovation", "hardware", "software", "consumer products", "technology"],
   icons: {
-    icon: "/logo.svg",
-    shortcut: "/logo.svg",
-    apple: "/logo.svg",
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
+    apple: "/favicon.svg",
   },
 };
 
