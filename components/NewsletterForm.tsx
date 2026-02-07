@@ -46,7 +46,7 @@ export default function NewsletterForm() {
       </div>
 
       <p className="text-white/40 text-sm">
-        Join 10,000+ innovators. Unsubscribe anytime.
+        Be the first to know when we launch. Unsubscribe anytime.
       </p>
     </form>
   );

@@ -5,24 +5,28 @@ import Link from 'next/link';
 
 const faqs = [
   {
-    question: "What makes BoxPox products different?",
-    answer: "Every BoxPox product is built with modular architecture, premium materials, and precision engineering. We design for longevity and upgradability, not planned obsolescence."
+    question: "What is BoxBot?",
+    answer: "BoxBot is a 6 degrees-of-freedom consumer robotic arm designed for makers, developers, students, and hobbyists. It brings industrial-grade precision to your desktop with programmable movements, AI-ready processing, and an open SDK."
   },
   {
-    question: "Do you offer international shipping?",
-    answer: "Yes! We ship to over 50 countries worldwide. Shipping times vary by location, typically 5-10 business days for international orders. All orders include tracking."
+    question: "What are Wocals?",
+    answer: "Wocals are AI-powered smart glasses that combine real-time object recognition, voice commands, and contextual information in a lightweight, everyday wearable. They augment your world with intelligent visual data."
   },
   {
-    question: "What's your return policy?",
-    answer: "We offer a 30-day no-questions-asked return policy. If you're not completely satisfied with your purchase, we'll provide a full refund or exchange."
+    question: "When will the products launch?",
+    answer: "We're currently in the development phase. Sign up for our newsletter to be the first to know about launch dates, early access, and pre-order opportunities."
   },
   {
-    question: "How long is the warranty?",
-    answer: "All BoxPox products come with a 5-year limited warranty covering manufacturing defects. Extended warranty options are available at checkout."
+    question: "Do you ship internationally?",
+    answer: "We plan to offer international shipping at launch. Initially, we'll prioritize India-wide delivery before expanding to global markets."
   },
   {
-    question: "Can I upgrade my existing products?",
-    answer: "Absolutely! Our modular design philosophy means most products can be upgraded with new modules and components. Check each product page for compatible upgrades."
+    question: "Can I develop custom applications for BoxBot?",
+    answer: "Absolutely! BoxBot comes with an open SDK and developer-friendly APIs. You can create custom automation workflows, integrate with other tools, and build entirely new applications."
+  },
+  {
+    question: "How can I contact BoxPox?",
+    answer: "You can reach us at +91 7888601710 (main) or +91 9835502288 (secondary), or email us at info@boxpox.in. Visit our Contact page for more ways to get in touch."
   }
 ];
 
@@ -32,25 +36,22 @@ export default function FAQ() {
   return (
     <section id="faq" className="section-padding bg-neo-black">
       <div className="container">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-20">
-          {/* Left Column - Header */}
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-20">
+          {/* Left Column */}
           <div className="lg:col-span-4">
             <div className="lg:sticky lg:top-28">
               <span className="section-label">
                 <HelpCircle size={14} />
                 FAQ
               </span>
-              <h2 className="text-4xl md:text-5xl font-black mb-6 leading-[0.95]">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mb-4 lg:mb-6 leading-[0.95] font-display">
                 Questions?<br />
-                <span className="text-neo-yellow">Answered.</span>
+                <span className="text-neo-yellow neon-yellow">Answered.</span>
               </h2>
-              <p className="text-white/60 leading-relaxed mb-8 text-lg">
-                Everything you need to know about BoxPox products and services.
+              <p className="text-white/50 leading-relaxed mb-6 text-base lg:text-lg">
+                Everything you need to know about BoxPox products.
               </p>
-              <Link 
-                href="/contact" 
-                className="robot-btn-outline py-3 px-6"
-              >
+              <Link href="/contact" className="robot-btn-outline py-3 px-6">
                 Contact Support
               </Link>
             </div>
@@ -58,42 +59,36 @@ export default function FAQ() {
 
           {/* Right Column - FAQ Items */}
           <div className="lg:col-span-8">
-            <div className="space-y-4">
+            <div className="space-y-3">
               {faqs.map((faq, index) => (
-                <div 
-                  key={index} 
+                <div
+                  key={index}
                   className={`rounded-2xl overflow-hidden transition-all ${
-                    openIndex === index 
-                      ? 'bg-white/10 border border-neo-yellow/30' 
-                      : 'bg-white/5 border border-white/10 hover:border-white/20'
+                    openIndex === index
+                      ? 'bg-white/[0.06] border border-neo-yellow/20'
+                      : 'bg-white/[0.03] border border-white/[0.06] hover:border-white/10'
                   }`}
                 >
                   <button
                     onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                    className="w-full px-6 py-5 flex justify-between items-center text-left gap-4"
+                    className="w-full px-5 py-4 sm:px-6 sm:py-5 flex justify-between items-center text-left gap-4"
                   >
-                    <span className="flex items-center gap-4">
-                      <span className={`font-mono text-sm font-bold ${
-                        openIndex === index ? 'text-neo-yellow' : 'text-white/30'
-                      }`}>
+                    <span className="flex items-center gap-3 sm:gap-4">
+                      <span className={`font-display text-sm font-bold ${openIndex === index ? 'text-neo-yellow' : 'text-white/20'}`}>
                         {String(index + 1).padStart(2, '0')}
                       </span>
-                      <span className="text-lg font-semibold text-white">
-                        {faq.question}
-                      </span>
+                      <span className="text-base sm:text-lg font-semibold text-white">{faq.question}</span>
                     </span>
-                    <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-colors ${
+                    <div className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-colors ${
                       openIndex === index ? 'bg-neo-yellow text-neo-black' : 'bg-white/10 text-white'
                     }`}>
-                      {openIndex === index ? <Minus size={16} /> : <Plus size={16} />}
+                      {openIndex === index ? <Minus size={14} /> : <Plus size={14} />}
                     </div>
                   </button>
-                  
-                  <div className={`overflow-hidden transition-all duration-300 ${
-                    openIndex === index ? 'max-h-48' : 'max-h-0'
-                  }`}>
-                    <div className="px-6 pb-6">
-                      <p className="pl-10 text-white/60 leading-relaxed border-l-2 border-neo-yellow/30">
+
+                  <div className={`overflow-hidden transition-all duration-300 ${openIndex === index ? 'max-h-48' : 'max-h-0'}`}>
+                    <div className="px-5 pb-5 sm:px-6 sm:pb-6">
+                      <p className="pl-8 sm:pl-10 text-white/50 leading-relaxed text-sm sm:text-base border-l-2 border-neo-yellow/20">
                         {faq.answer}
                       </p>
                     </div>

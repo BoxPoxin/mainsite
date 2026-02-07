@@ -285,7 +285,7 @@ export default function BoxPrintPage() {
                   <div className="w-10 h-10 bg-neo-yellow rounded-lg flex items-center justify-center text-neo-black mb-3">
                     {feature.icon}
                   </div>
-                  <h3 className="font-bold text-base text-white mb-1.5">{feature.title}</h3>
+                  <h3 className="font-bold text-base text-white mb-1.5 font-display">{feature.title}</h3>
                   <p className="text-xs text-white/60">{feature.desc}</p>
                 </div>
               ))}
@@ -319,7 +319,7 @@ export default function BoxPrintPage() {
                 <div className="w-12 h-12 bg-neo-yellow rounded-lg flex items-center justify-center text-neo-black mb-4">
                   {feature.icon}
                 </div>
-                <h3 className="font-bold text-lg text-white mb-2">{feature.title}</h3>
+                <h3 className="font-bold text-lg text-white mb-2 font-display">{feature.title}</h3>
                 <p className="text-sm text-white/60">{feature.desc}</p>
               </div>
             ))}

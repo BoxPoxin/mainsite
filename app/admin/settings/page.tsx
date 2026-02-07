@@ -19,7 +19,7 @@ export default async function AdminSettingsPage() {
     return (
       <div className="flex items-center justify-center h-[60vh]">
         <div className="text-center">
-          <h2 className="text-xl font-bold text-neutral-900 mb-2">Access Denied</h2>
+          <h2 className="text-xl font-bold text-neutral-900 mb-2 font-display">Access Denied</h2>
           <p className="text-neutral-500">Only super admins can access settings.</p>
         </div>
       </div>
@@ -36,7 +36,7 @@ export default async function AdminSettingsPage() {
     <div className="space-y-6">
       {/* Page Header */}
       <div>
-        <h1 className="text-2xl font-bold text-neutral-900">Settings</h1>
+        <h1 className="text-2xl font-bold text-neutral-900 font-display">Settings</h1>
         <p className="text-neutral-500 text-sm mt-1">
           Manage admin users and system settings
         </p>
@@ -45,7 +45,7 @@ export default async function AdminSettingsPage() {
       {/* Admin Users */}
       <div className="bg-white rounded-xl border border-neutral-200 overflow-hidden">
         <div className="px-5 py-4 border-b border-neutral-200">
-          <h3 className="font-bold text-neutral-900">Admin Users</h3>
+          <h3 className="font-bold text-neutral-900 font-display">Admin Users</h3>
         </div>
         
         <div className="divide-y divide-neutral-100">
@@ -73,7 +73,7 @@ export default async function AdminSettingsPage() {
       
       {/* Quick Setup Guide */}
       <div className="bg-blue-50 rounded-xl border border-blue-200 p-5">
-        <h3 className="font-bold text-blue-900 mb-3">Quick Setup</h3>
+        <h3 className="font-bold text-blue-900 mb-3 font-display">Quick Setup</h3>
         <p className="text-sm text-blue-700 mb-3">
           To add yourself as an admin, run this SQL in your Supabase SQL Editor:
         </p>

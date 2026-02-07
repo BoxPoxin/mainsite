@@ -91,11 +91,12 @@ function ResetPasswordForm() {
         {/* Logo */}
         <Link href="/" className="inline-flex items-center gap-2 mb-8">
           <Image 
-            src="/logo.png" 
+            src="/logo.png?v=2026" 
             alt="BoxPox Logo" 
             width={50} 
             height={50} 
             className="h-12 w-auto"
+            unoptimized
           />
         </Link>
 
@@ -112,7 +113,7 @@ function ResetPasswordForm() {
           <KeyRound size={32} className="text-neo-black" />
         </div>
 
-        <h1 className="text-3xl md:text-4xl font-black mb-2 tracking-tight text-white">Reset Password</h1>
+        <h1 className="text-3xl md:text-4xl font-black mb-2 tracking-tight text-white font-display">Reset Password</h1>
         <p className="text-white/60 mb-8">
           Enter your new password below. Make sure it&apos;s strong and secure.
         </p>

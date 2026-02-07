@@ -85,7 +85,7 @@ export default async function OrderDetailPage({ params }: OrderDetailPageProps) 
           <div className="bg-white rounded-xl border border-neutral-200 overflow-hidden">
             <div className="px-5 py-4 border-b border-neutral-200 flex items-center gap-2">
               <Printer size={18} className="text-purple-500" />
-              <h2 className="font-bold text-neutral-900">Print Configuration</h2>
+              <h2 className="font-bold text-neutral-900 font-display">Print Configuration</h2>
             </div>
             <div className="p-5">
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -158,7 +158,7 @@ export default async function OrderDetailPage({ params }: OrderDetailPageProps) 
           <div className="bg-white rounded-xl border border-neutral-200 overflow-hidden">
             <div className="px-5 py-4 border-b border-neutral-200 flex items-center gap-2">
               <FileBox size={18} className="text-blue-500" />
-              <h2 className="font-bold text-neutral-900">Model File</h2>
+              <h2 className="font-bold text-neutral-900 font-display">Model File</h2>
             </div>
             <div className="p-5">
               <div className="flex items-center gap-4 p-4 bg-neutral-50 rounded-lg">
@@ -186,7 +186,7 @@ export default async function OrderDetailPage({ params }: OrderDetailPageProps) 
             <div className="bg-white rounded-xl border border-neutral-200 overflow-hidden">
               <div className="px-5 py-4 border-b border-neutral-200 flex items-center gap-2">
                 <MessageSquare size={18} className="text-amber-500" />
-                <h2 className="font-bold text-neutral-900">Customer Instructions</h2>
+                <h2 className="font-bold text-neutral-900 font-display">Customer Instructions</h2>
               </div>
               <div className="p-5">
                 <p className="text-neutral-700 whitespace-pre-wrap">{order.customer_instructions}</p>
@@ -198,7 +198,7 @@ export default async function OrderDetailPage({ params }: OrderDetailPageProps) 
           <div className="bg-white rounded-xl border border-neutral-200 overflow-hidden">
             <div className="px-5 py-4 border-b border-neutral-200 flex items-center gap-2">
               <History size={18} className="text-green-500" />
-              <h2 className="font-bold text-neutral-900">Status History</h2>
+              <h2 className="font-bold text-neutral-900 font-display">Status History</h2>
             </div>
             <div className="p-5">
               {statusHistory && statusHistory.length > 0 ? (
@@ -248,7 +248,7 @@ export default async function OrderDetailPage({ params }: OrderDetailPageProps) 
           <div className="bg-white rounded-xl border border-neutral-200 overflow-hidden">
             <div className="px-5 py-4 border-b border-neutral-200 flex items-center gap-2">
               <User size={18} className="text-indigo-500" />
-              <h2 className="font-bold text-neutral-900">Customer</h2>
+              <h2 className="font-bold text-neutral-900 font-display">Customer</h2>
             </div>
             <div className="p-5 space-y-3">
               <div>
@@ -272,7 +272,7 @@ export default async function OrderDetailPage({ params }: OrderDetailPageProps) 
           <div className="bg-white rounded-xl border border-neutral-200 overflow-hidden">
             <div className="px-5 py-4 border-b border-neutral-200 flex items-center gap-2">
               <CreditCard size={18} className="text-green-500" />
-              <h2 className="font-bold text-neutral-900">Pricing</h2>
+              <h2 className="font-bold text-neutral-900 font-display">Pricing</h2>
             </div>
             <div className="p-5 space-y-3">
               <div className="flex justify-between text-sm">
@@ -322,7 +322,7 @@ export default async function OrderDetailPage({ params }: OrderDetailPageProps) 
           <div className="bg-white rounded-xl border border-neutral-200 overflow-hidden">
             <div className="px-5 py-4 border-b border-neutral-200 flex items-center gap-2">
               <Truck size={18} className="text-cyan-500" />
-              <h2 className="font-bold text-neutral-900">Shipping</h2>
+              <h2 className="font-bold text-neutral-900 font-display">Shipping</h2>
             </div>
             <div className="p-5">
               {order.shipping_address ? (

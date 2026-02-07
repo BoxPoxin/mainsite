@@ -79,7 +79,7 @@ function OrderSuccessContent() {
 
           {/* What's Next Timeline */}
           <div className="bg-white/5 border border-white/10 rounded-xl p-5 md:p-6 mb-8 text-left">
-            <h2 className="text-lg font-bold mb-4 text-center text-white">What happens next?</h2>
+            <h2 className="text-lg font-bold mb-4 text-center text-white font-display">What happens next?</h2>
             <div className="space-y-4">
               {[
                 {

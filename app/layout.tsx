@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Poppins, Space_Mono } from "next/font/google";
+import { Poppins, Space_Mono, Orbitron } from "next/font/google";
 import "./globals.css";
 import { CartProvider } from "@/context/CartContext";
 import LayoutWrapper from "@/components/LayoutWrapper";
@@ -16,34 +16,41 @@ const spaceMono = Space_Mono({
   variable: "--font-mono",
 });
 
+const orbitron = Orbitron({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+  variable: "--font-display",
+});
+
 export const metadata: Metadata = {
-  title: "BoxPox — Box of Possibility",
-  description: "Consumer-focused innovation. Hardware and software products engineered for the future. Get instant 3D printing quotes with BoxPrint.",
-  keywords: ["innovation", "hardware", "software", "consumer products", "technology", "3D printing", "BoxPrint", "custom prints"],
+  title: "BoxPox — Robotics & Consumer Electronics",
+  description: "Consumer robotics and AI-powered electronics. BoxBot - 6DOF robotic arm. Wocals - AI smart glasses. Building the future of human-machine interaction.",
+  keywords: ["robotics", "consumer electronics", "robotic arm", "smart glasses", "AI", "BoxBot", "Wocals", "BoxPox"],
   icons: {
-    icon: "/logo.png",
-    shortcut: "/logo.png",
-    apple: "/logo.png",
+    icon: "/logo.png?v=2026",
+    shortcut: "/logo.png?v=2026",
+    apple: "/logo.png?v=2026",
   },
   appleWebApp: {
     title: "BoxPox",
     statusBarStyle: "black-translucent",
     capable: true,
   },
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 1,
-    userScalable: false,
-    viewportFit: "cover",
-  },
-  themeColor: "#0A0A0A",
   manifest: "/manifest.json",
   openGraph: {
-    title: "BoxPox — Box of Possibility",
-    description: "Consumer-focused innovation. Hardware and software products engineered for the future.",
+    title: "BoxPox — Robotics & Consumer Electronics",
+    description: "Consumer robotics and AI-powered electronics designed to seamlessly integrate into your world.",
     type: "website",
   },
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+  viewportFit: "cover",
+  themeColor: "#0A0A0A",
 };
 
 export default function RootLayout({
@@ -53,7 +60,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${poppins.variable} ${spaceMono.variable} font-sans cursor-default`}>
+      <body className={`${poppins.variable} ${spaceMono.variable} ${orbitron.variable} font-sans cursor-default`}>
         <CartProvider>
           <LayoutWrapper>
             {children}

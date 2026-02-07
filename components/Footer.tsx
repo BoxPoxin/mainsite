@@ -9,9 +9,9 @@ export default function Footer() {
 
   const footerLinks = {
     products: [
+      { label: 'BoxBot', href: '/products#boxbot' },
+      { label: 'Wocals', href: '/products#wocals' },
       { label: 'All Products', href: '/products' },
-      { label: 'BoxPrint 3D', href: '/boxprint' },
-      { label: 'Coming Soon', href: '/products' },
     ],
     company: [
       { label: 'About Us', href: '/about' },
@@ -31,27 +31,22 @@ export default function Footer() {
 
   return (
     <footer className="bg-neo-black relative overflow-hidden">
-      {/* Animated Dot Pattern Background */}
-      <div className="absolute inset-0 dot-pattern-animated opacity-30" />
+      <div className="absolute inset-0 dot-pattern-animated opacity-20" />
 
-      {/* Main Footer Content */}
       <div className="relative z-10">
         {/* CTA Section */}
         <div className="border-b border-white/10">
-          <div className="container py-20 md:py-28">
+          <div className="container py-16 md:py-24">
             <div className="max-w-4xl mx-auto text-center">
-              <h2 className="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-[0.95]">
-                Ready to build<br />
-                <span className="text-neo-yellow">something amazing?</span>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white mb-4 lg:mb-6 leading-[0.95] font-display">
+                Ready to explore the<br />
+                <span className="text-neo-yellow">future of robotics?</span>
               </h2>
-              <p className="text-white/60 text-lg md:text-xl mb-10 max-w-xl mx-auto">
-                Start your 3D printing journey today with BoxPox. Upload, customize, and receive.
+              <p className="text-white/50 text-base sm:text-lg md:text-xl mb-8 max-w-xl mx-auto">
+                Join us on our mission to make consumer robotics accessible to everyone.
               </p>
-              <Link 
-                href="/boxprint" 
-                className="robot-btn text-lg px-10 py-5"
-              >
-                Get Started
+              <Link href="/products" className="robot-btn text-base lg:text-lg px-8 lg:px-10 py-4 lg:py-5">
+                Explore Products
                 <ArrowRight size={20} />
               </Link>
             </div>
@@ -60,32 +55,22 @@ export default function Footer() {
 
         {/* Links Section */}
         <div className="border-b border-white/10">
-          <div className="container py-16 md:py-20">
+          <div className="container py-12 md:py-16">
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 lg:gap-12">
-              {/* Brand Column */}
+              {/* Brand */}
               <div className="col-span-2">
                 <Link href="/" className="inline-flex items-center gap-3 mb-6">
-                  <div className="w-12 h-12 bg-neo-yellow rounded-full flex items-center justify-center">
-                    <Image 
-                      src="/logo.png" 
-                      alt="BoxPox" 
-                      width={40} 
-                      height={40} 
-                      className="w-8 h-8 object-contain"
-                    />
+                  <div className="w-11 h-11 bg-neo-yellow rounded-full flex items-center justify-center">
+                    <Image src="/logo.png?v=2026" alt="BoxPox" width={40} height={40} className="w-7 h-7 object-contain" unoptimized />
                   </div>
-                  <span className="text-white font-bold text-2xl">BoxPox</span>
+                  <span className="text-white font-bold text-xl font-display">BoxPox</span>
                 </Link>
-                <p className="text-white/50 text-sm leading-relaxed mb-6 max-w-xs">
-                  Consumer-focused innovation for the humans of tomorrow. Building the future, one product at a time.
+                <p className="text-white/40 text-sm leading-relaxed mb-6 max-w-xs">
+                  Robotics &amp; consumer electronics for the humans of tomorrow. Building the future, one product at a time.
                 </p>
                 <div className="flex gap-3">
                   {['Twitter', 'Instagram', 'LinkedIn'].map((social) => (
-                    <a 
-                      key={social}
-                      href="#"
-                      className="px-4 py-2 rounded-full border border-white/10 text-white/60 text-sm hover:border-neo-yellow hover:text-neo-yellow transition-all"
-                    >
+                    <a key={social} href="#" className="px-4 py-2 rounded-full border border-white/10 text-white/50 text-sm hover:border-neo-yellow hover:text-neo-yellow transition-all">
                       {social}
                     </a>
                   ))}
@@ -94,14 +79,11 @@ export default function Footer() {
 
               {/* Products */}
               <div>
-                <h4 className="text-white font-semibold mb-6 text-sm uppercase tracking-wider">Products</h4>
-                <ul className="space-y-4">
+                <h4 className="text-white font-semibold mb-5 text-sm uppercase tracking-wider font-display">Products</h4>
+                <ul className="space-y-3">
                   {footerLinks.products.map((link) => (
                     <li key={link.label}>
-                      <Link 
-                        href={link.href} 
-                        className="text-white/50 hover:text-neo-yellow transition-colors text-sm inline-flex items-center gap-1 group"
-                      >
+                      <Link href={link.href} className="text-white/40 hover:text-neo-yellow transition-colors text-sm inline-flex items-center gap-1 group">
                         {link.label}
                         <ArrowUpRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity" />
                       </Link>
@@ -112,14 +94,11 @@ export default function Footer() {
 
               {/* Company */}
               <div>
-                <h4 className="text-white font-semibold mb-6 text-sm uppercase tracking-wider">Company</h4>
-                <ul className="space-y-4">
+                <h4 className="text-white font-semibold mb-5 text-sm uppercase tracking-wider font-display">Company</h4>
+                <ul className="space-y-3">
                   {footerLinks.company.map((link) => (
                     <li key={link.label}>
-                      <Link 
-                        href={link.href} 
-                        className="text-white/50 hover:text-neo-yellow transition-colors text-sm inline-flex items-center gap-1 group"
-                      >
+                      <Link href={link.href} className="text-white/40 hover:text-neo-yellow transition-colors text-sm inline-flex items-center gap-1 group">
                         {link.label}
                         <ArrowUpRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity" />
                       </Link>
@@ -130,14 +109,11 @@ export default function Footer() {
 
               {/* Support */}
               <div>
-                <h4 className="text-white font-semibold mb-6 text-sm uppercase tracking-wider">Support</h4>
-                <ul className="space-y-4">
+                <h4 className="text-white font-semibold mb-5 text-sm uppercase tracking-wider font-display">Support</h4>
+                <ul className="space-y-3">
                   {footerLinks.support.map((link) => (
                     <li key={link.label}>
-                      <Link 
-                        href={link.href} 
-                        className="text-white/50 hover:text-neo-yellow transition-colors text-sm inline-flex items-center gap-1 group"
-                      >
+                      <Link href={link.href} className="text-white/40 hover:text-neo-yellow transition-colors text-sm inline-flex items-center gap-1 group">
                         {link.label}
                         <ArrowUpRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity" />
                       </Link>
@@ -148,22 +124,22 @@ export default function Footer() {
 
               {/* Contact */}
               <div>
-                <h4 className="text-white font-semibold mb-6 text-sm uppercase tracking-wider">Contact</h4>
-                <ul className="space-y-4">
-                  <li className="flex items-start gap-3 text-white/50 text-sm">
+                <h4 className="text-white font-semibold mb-5 text-sm uppercase tracking-wider font-display">Contact</h4>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-3 text-white/40 text-sm">
                     <MapPin size={16} className="text-neo-yellow mt-0.5 flex-shrink-0" />
                     <span>1617 Sector 70<br />Mohali, 160071</span>
                   </li>
-                  <li className="flex items-center gap-3 text-white/50 text-sm">
+                  <li className="flex items-center gap-3 text-white/40 text-sm">
                     <Phone size={16} className="text-neo-yellow flex-shrink-0" />
                     <div className="flex flex-col">
-                      <span>+91 7888601710</span>
-                      <span className="text-white/30 text-xs">+91 9835502288</span>
+                      <a href="tel:+917888601710" className="hover:text-white transition-colors">+91 7888601710</a>
+                      <a href="tel:+919835502288" className="text-white/30 text-xs hover:text-white transition-colors">+91 9835502288</a>
                     </div>
                   </li>
-                  <li className="flex items-center gap-3 text-white/50 text-sm">
+                  <li className="flex items-center gap-3 text-white/40 text-sm">
                     <Mail size={16} className="text-neo-yellow flex-shrink-0" />
-                    <span>info@boxpox.in</span>
+                    <a href="mailto:info@boxpox.in" className="hover:text-white transition-colors">info@boxpox.in</a>
                   </li>
                 </ul>
               </div>
@@ -172,27 +148,19 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="container py-8">
+        <div className="container py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="flex items-center gap-6 text-sm text-white/40">
-              <span>© {currentYear} BoxPox. All rights reserved.</span>
-            </div>
+            <span className="text-sm text-white/30">© {currentYear} BoxPox. All rights reserved.</span>
             <div className="flex items-center gap-6">
               {footerLinks.legal.map((link) => (
-                <Link 
-                  key={link.label}
-                  href={link.href} 
-                  className="text-sm text-white/40 hover:text-white transition-colors"
-                >
-                  {link.label}
-                </Link>
+                <Link key={link.label} href={link.href} className="text-sm text-white/30 hover:text-white transition-colors">{link.label}</Link>
               ))}
             </div>
           </div>
         </div>
 
-        {/* Bottom Gradient Line */}
-        <div className="h-1 bg-gradient-to-r from-transparent via-neo-yellow to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-neo-yellow/50 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-neo-yellow/20 to-transparent mt-px" />
       </div>
     </footer>
   );

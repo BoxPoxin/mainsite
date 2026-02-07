@@ -73,7 +73,7 @@ export default async function OrdersPage({ searchParams }: OrdersPageProps) {
       {/* Page Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-neutral-900">Orders</h1>
+          <h1 className="text-2xl font-bold text-neutral-900 font-display">Orders</h1>
           <p className="text-neutral-500 text-sm mt-1">
             Manage and track all BoxPrint orders
             {count !== null && <span className="ml-2">({count} total)</span>}

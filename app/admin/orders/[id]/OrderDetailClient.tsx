@@ -73,7 +73,7 @@ export default function OrderDetailClient({ order }: OrderDetailClientProps) {
     <div className="bg-white rounded-xl border border-neutral-200 overflow-hidden">
       <div className="px-5 py-4 border-b border-neutral-200 flex items-center gap-2">
         <Settings size={18} className="text-neutral-500" />
-        <h2 className="font-bold text-neutral-900">Manage Order</h2>
+        <h2 className="font-bold text-neutral-900 font-display">Manage Order</h2>
       </div>
       <div className="p-5 space-y-4">
         {/* Status Update */}

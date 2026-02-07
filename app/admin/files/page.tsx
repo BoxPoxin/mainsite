@@ -57,7 +57,7 @@ export default async function FilesPage() {
       {/* Page Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-neutral-900">Files</h1>
+          <h1 className="text-2xl font-bold text-neutral-900 font-display">Files</h1>
           <p className="text-neutral-500 text-sm mt-1">
             Manage uploaded 3D model files
           </p>
@@ -106,7 +106,7 @@ export default async function FilesPage() {
       {/* Files Table */}
       <div className="bg-white rounded-xl border border-neutral-200 overflow-hidden">
         <div className="px-5 py-4 border-b border-neutral-200 flex items-center justify-between">
-          <h3 className="font-bold text-neutral-900">All Model Files</h3>
+          <h3 className="font-bold text-neutral-900 font-display">All Model Files</h3>
           <div className="relative">
             <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-neutral-400" />
             <input

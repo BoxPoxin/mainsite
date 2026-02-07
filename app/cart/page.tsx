@@ -48,7 +48,7 @@ export default function Cart() {
       <div className="container py-6 md:py-12 px-4">
         {/* Page Header */}
         <div className="mb-6 md:mb-8">
-          <h1 className="text-2xl md:text-4xl font-black tracking-tight mb-1 md:mb-2">Shopping Cart</h1>
+          <h1 className="text-2xl md:text-4xl font-black tracking-tight mb-1 md:mb-2 font-display">Shopping Cart</h1>
           <p className="text-white/60 text-sm md:text-base">
             {getCartCount()} {getCartCount() === 1 ? 'item' : 'items'} in your cart
           </p>
@@ -100,7 +100,7 @@ export default function Cart() {
             {/* Order Summary - Desktop */}
             <div className="lg:col-span-1 hidden md:block">
               <div className="robot-card p-6 sticky top-[100px]">
-                <h2 className="text-lg md:text-xl font-bold mb-6">Order Summary</h2>
+                <h2 className="text-lg md:text-xl font-bold mb-6 font-display">Order Summary</h2>
 
                 <div className="space-y-3 mb-6">
                   <div className="flex justify-between text-sm">
@@ -172,7 +172,7 @@ export default function Cart() {
             <div className="w-20 h-20 md:w-24 md:h-24 mx-auto mb-5 bg-white/5 rounded-2xl flex items-center justify-center border border-white/10">
               <ShoppingBag size={32} className="text-white/30" />
             </div>
-            <h2 className="text-lg md:text-2xl font-bold mb-2">Your cart is empty</h2>
+            <h2 className="text-lg md:text-2xl font-bold mb-2 font-display">Your cart is empty</h2>
             <p className="text-white/60 mb-6 max-w-sm mx-auto text-sm">
               Looks like you haven&apos;t added anything yet. Start by getting a 3D print quote!
             </p>

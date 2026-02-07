@@ -220,7 +220,7 @@ export default function OrderTrackingPage() {
         <div className="container max-w-2xl mx-auto">
           <div className="bg-white/5 border border-white/10 rounded-xl p-8 text-center">
             <AlertCircle size={48} className="mx-auto text-red-400 mb-4" />
-            <h1 className="text-2xl font-black mb-2 text-white">Order Not Found</h1>
+            <h1 className="text-2xl font-black mb-2 text-white font-display">Order Not Found</h1>
             <p className="text-white/60 mb-6">{error || 'We couldn\'t find this order.'}</p>
             
             <div className="space-y-4">
@@ -262,7 +262,7 @@ export default function OrderTrackingPage() {
             <div>
               <div className="flex items-center gap-3 mb-2">
                 <Package size={24} className="text-neo-yellow" />
-                <h1 className="text-2xl font-black text-white">Order {order.order_number}</h1>
+                <h1 className="text-2xl font-black text-white font-display">Order {order.order_number}</h1>
               </div>
               <p className="text-sm text-white/60">
                 Placed on {formatDate(order.created_at)}
@@ -284,7 +284,7 @@ export default function OrderTrackingPage() {
 
         {/* Progress Tracker */}
         <div className="bg-white/5 border border-white/10 rounded-xl p-6 mb-6">
-          <h2 className="text-lg font-bold mb-6 text-white">Order Progress</h2>
+          <h2 className="text-lg font-bold mb-6 text-white font-display">Order Progress</h2>
           
           <div className="relative">
             {/* Progress Line */}
@@ -449,7 +449,7 @@ export default function OrderTrackingPage() {
         <div className="mt-6 bg-white/5 border border-white/10 rounded-xl p-6">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <div>
-              <h3 className="font-bold mb-1 text-white">Need Help?</h3>
+              <h3 className="font-bold mb-1 text-white font-display">Need Help?</h3>
               <p className="text-sm text-white/60">
                 Questions about your order? We&apos;re here to help.
               </p>

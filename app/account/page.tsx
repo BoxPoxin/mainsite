@@ -348,7 +348,7 @@ export default function AccountPage() {
       <div className="container max-w-6xl mx-auto">
         {/* Page Header */}
         <div className="mb-4 md:mb-8">
-          <h1 className="text-2xl md:text-4xl font-black text-white mb-1 md:mb-2">My Account</h1>
+          <h1 className="text-2xl md:text-4xl font-black text-white mb-1 md:mb-2 font-display">My Account</h1>
           <p className="text-sm md:text-base text-white/60">Manage your profile, orders, and preferences</p>
         </div>
 
@@ -364,7 +364,7 @@ export default function AccountPage() {
                   </span>
                 </div>
                 <div className="flex-1 min-w-0">
-                  <h2 className="text-base md:text-lg font-bold text-white truncate">{displayName}</h2>
+                  <h2 className="text-base md:text-lg font-bold text-white truncate font-display">{displayName}</h2>
                   <p className="text-xs md:text-sm text-white/60 truncate">{user.email}</p>
                 </div>
               </div>
@@ -436,7 +436,7 @@ export default function AccountPage() {
             {/* Profile Tab */}
             {activeTab === 'profile' && (
               <div className="robot-card p-4 md:p-6">
-                <h3 className="text-lg md:text-xl font-bold text-white mb-4 md:mb-6">Profile Information</h3>
+                <h3 className="text-lg md:text-xl font-bold text-white mb-4 md:mb-6 font-display">Profile Information</h3>
                 
                 {saveMessage && (
                   <div className={`mb-4 md:mb-6 p-3 md:p-4 rounded-lg flex items-start gap-2 md:gap-3 text-sm ${
@@ -513,7 +513,7 @@ export default function AccountPage() {
             {activeTab === 'orders' && (
               <div className="robot-card p-4 md:p-6">
                 <div className="flex items-center justify-between mb-4 md:mb-6">
-                  <h3 className="text-lg md:text-xl font-bold text-white">My Orders</h3>
+                  <h3 className="text-lg md:text-xl font-bold text-white font-display">My Orders</h3>
                   <span className="text-xs md:text-sm text-white/60">{ordersCount} total</span>
                 </div>
                 
@@ -567,7 +567,7 @@ export default function AccountPage() {
             {activeTab === 'addresses' && (
               <div className="robot-card p-4 md:p-6">
                 <div className="flex items-center justify-between mb-4 md:mb-6">
-                  <h3 className="text-lg md:text-xl font-bold text-white">Saved Addresses</h3>
+                  <h3 className="text-lg md:text-xl font-bold text-white font-display">Saved Addresses</h3>
                   <button 
                     onClick={() => setShowAddressModal(true)}
                     className="robot-btn-outline text-xs md:text-sm py-2 px-3"
@@ -638,7 +638,7 @@ export default function AccountPage() {
             {/* Payment Methods Tab */}
             {activeTab === 'payments' && (
               <div className="robot-card p-6">
-                <h3 className="text-xl font-bold text-white mb-6">Payment Methods</h3>
+                <h3 className="text-xl font-bold text-white mb-6 font-display">Payment Methods</h3>
                 
                 <div className="text-center py-12">
                   <CreditCard size={48} className="mx-auto text-white/20 mb-4" />
@@ -656,7 +656,7 @@ export default function AccountPage() {
             {/* Notifications Tab */}
             {activeTab === 'notifications' && (
               <div className="robot-card p-6">
-                <h3 className="text-xl font-bold text-white mb-6">Notification Preferences</h3>
+                <h3 className="text-xl font-bold text-white mb-6 font-display">Notification Preferences</h3>
                 
                 <div className="space-y-6">
                   <div>
@@ -726,7 +726,7 @@ export default function AccountPage() {
             {/* Security Tab */}
             {activeTab === 'security' && (
               <div className="robot-card p-6">
-                <h3 className="text-xl font-bold text-white mb-6">Privacy & Security</h3>
+                <h3 className="text-xl font-bold text-white mb-6 font-display">Privacy & Security</h3>
                 
                 <div className="space-y-6">
                   {/* Password Section */}
@@ -820,7 +820,7 @@ export default function AccountPage() {
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70">
           <div className="bg-neo-gray border border-white/10 rounded-2xl w-full max-w-md max-h-[90vh] overflow-y-auto">
             <div className="p-4 md:p-6 border-b border-white/10">
-              <h3 className="text-lg font-bold text-white">Add New Address</h3>
+              <h3 className="text-lg font-bold text-white font-display">Add New Address</h3>
             </div>
             <div className="p-4 md:p-6 space-y-4">
               <div>

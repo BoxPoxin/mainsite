@@ -406,7 +406,7 @@ export default function CheckoutPage() {
       <main className="pt-[72px] md:pt-[80px] min-h-screen bg-neo-black">
         <div className="container py-12 text-center">
           <Box size={48} className="mx-auto text-white/20 mb-4" />
-          <h1 className="text-2xl font-bold text-white mb-2">Your cart is empty</h1>
+          <h1 className="text-2xl font-bold text-white mb-2 font-display">Your cart is empty</h1>
           <p className="text-white/60 mb-6">Add some items to checkout</p>
           <Link href="/boxprint" className="robot-btn inline-flex">
             Get a Quote
@@ -740,7 +740,7 @@ export default function CheckoutPage() {
 
               {/* Order Notes */}
               <div className="robot-card p-5 md:p-6">
-                <h2 className="text-lg font-bold text-white mb-4">Order Notes (Optional)</h2>
+                <h2 className="text-lg font-bold text-white mb-4 font-display">Order Notes (Optional)</h2>
                 <textarea
                   value={form.notes}
                   onChange={(e) => setForm(prev => ({ ...prev, notes: e.target.value }))}
@@ -776,7 +776,7 @@ export default function CheckoutPage() {
           {/* Order Summary Sidebar */}
           <div className="lg:col-span-1">
             <div className="robot-card p-5 md:p-6 sticky top-[100px]">
-              <h2 className="text-lg font-bold text-white mb-4">Order Summary</h2>
+              <h2 className="text-lg font-bold text-white mb-4 font-display">Order Summary</h2>
               
               {/* Items */}
               <div className="space-y-3 mb-4 max-h-[250px] overflow-y-auto">
