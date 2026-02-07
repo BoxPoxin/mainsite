@@ -33,7 +33,7 @@ export default function MaterialGuide() {
           <span className="inline-block px-3 py-1 bg-neo-yellow text-neo-black text-xs font-bold uppercase tracking-wider rounded mb-4">
             Material Guide
           </span>
-          <h2 className="text-3xl md:text-4xl font-black mb-4 tracking-tight text-white">
+          <h2 className="text-3xl md:text-4xl font-black mb-4 tracking-tight text-white font-display">
             Choose the Right <span className="text-neo-yellow">Material</span>
           </h2>
           <p className="text-white/60">
@@ -71,7 +71,7 @@ export default function MaterialGuide() {
                   {/* Content */}
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-1">
-                      <h3 className="font-bold text-lg text-white">{matId}</h3>
+                      <h3 className="font-bold text-lg text-white font-display">{matId}</h3>
                       <span className={`
                         px-2 py-0.5 rounded text-[10px] font-bold uppercase
                         ${material.difficulty === 'beginner' ? 'bg-green-500/20 text-green-400' : ''}

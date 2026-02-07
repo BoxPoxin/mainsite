@@ -9,7 +9,7 @@ export default function Newsletter() {
       
       <div className="container relative z-10">
         <div className="max-w-4xl mx-auto">
-          <div className="rounded-3xl bg-gradient-to-br from-white/5 to-transparent border border-white/10 p-8 md:p-12 lg:p-16 relative overflow-hidden">
+          <div className="rounded-3xl gradient-border p-8 md:p-12 lg:p-16 relative overflow-hidden">
             {/* Corner Accent */}
             <div className="absolute top-0 right-0 w-40 h-40 bg-neo-yellow rounded-bl-[100px] opacity-20" />
             
@@ -21,13 +21,13 @@ export default function Newsletter() {
                   NEWSLETTER
                 </span>
                 
-                <h2 className="text-3xl md:text-4xl font-black mb-4 leading-[0.95]">
+                <h2 className="text-3xl md:text-4xl font-black mb-4 leading-[0.95] font-display">
                   Join the<br />
-                  <span className="text-neo-yellow">Inner Circle</span>
+                  <span className="text-neo-yellow neon-yellow">Inner Circle</span>
                 </h2>
                 
                 <p className="text-white/60 leading-relaxed text-lg">
-                  Get early access to new products, exclusive drops, and insider updates. No spam, just innovation.
+                  Get launch updates for BoxBot &amp; Wocals, early access, and behind-the-scenes content. No spam, just innovation.
                 </p>
               </div>
 

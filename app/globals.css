@@ -8,6 +8,7 @@
   --bg-black: #0A0A0A;
   --bg-gray: #1A1A1A;
   --font-main: 'Poppins', sans-serif;
+  --font-display: 'Orbitron', sans-serif;
   --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
@@ -33,7 +34,7 @@
   }
   
   h1, h2, h3, h4, h5, h6 {
-    @apply font-black leading-[0.95] text-white tracking-tight;
+    @apply font-display font-black leading-[0.95] text-white tracking-tight;
   }
   
   h1 {
@@ -77,7 +78,7 @@
 
   /* Robot.com Style - Buttons */
   .robot-btn {
-    @apply inline-flex items-center justify-center gap-3 px-8 py-4 bg-neo-yellow text-neo-black font-bold text-base rounded-full cursor-pointer transition-all duration-300 no-underline;
+    @apply inline-flex items-center justify-center gap-3 px-8 py-4 bg-neo-yellow text-neo-black font-bold text-base rounded-full cursor-pointer transition-all duration-300 no-underline font-display tracking-wider;
   }
 
   .robot-btn:hover {
@@ -85,7 +86,7 @@
   }
 
   .robot-btn-outline {
-    @apply inline-flex items-center justify-center gap-3 px-8 py-4 bg-transparent text-white font-bold text-base border-2 border-white/20 rounded-full cursor-pointer transition-all duration-300 no-underline;
+    @apply inline-flex items-center justify-center gap-3 px-8 py-4 bg-transparent text-white font-bold text-base border-2 border-white/20 rounded-full cursor-pointer transition-all duration-300 no-underline font-display tracking-wider;
   }
 
   .robot-btn-outline:hover {
@@ -93,7 +94,7 @@
   }
 
   .robot-btn-dark {
-    @apply inline-flex items-center justify-center gap-3 px-8 py-4 bg-neo-black text-white font-bold text-base rounded-full cursor-pointer transition-all duration-300 no-underline border-2 border-white/10;
+    @apply inline-flex items-center justify-center gap-3 px-8 py-4 bg-neo-black text-white font-bold text-base rounded-full cursor-pointer transition-all duration-300 no-underline border-2 border-white/10 font-display tracking-wider;
   }
 
   .robot-btn-dark:hover {
@@ -102,7 +103,7 @@
 
   /* Robot.com Style - Inputs */
   .robot-input {
-    @apply w-full px-6 py-4 bg-neo-gray text-white border-2 border-white/10 rounded-2xl font-medium outline-none transition-all duration-300;
+    @apply w-full px-6 py-4 bg-neo-gray text-white border-2 border-white/10 rounded-2xl font-medium outline-none transition-all duration-300 font-display;
   }
 
   .robot-input:focus {
@@ -119,16 +120,16 @@
   }
 
   .section-label {
-    @apply inline-flex items-center gap-2 px-4 py-2 bg-neo-yellow/10 text-neo-yellow text-xs font-bold uppercase tracking-widest rounded-full mb-6;
+    @apply inline-flex items-center gap-2 px-4 py-2 bg-neo-yellow/10 text-neo-yellow text-xs font-bold uppercase tracking-widest rounded-full mb-6 font-display;
   }
 
   /* Robot.com Style - Stats */
   .stat-number {
-    @apply text-6xl md:text-7xl lg:text-8xl font-black text-white tracking-tighter;
+    @apply text-6xl md:text-7xl lg:text-8xl font-black text-white tracking-tighter font-display;
   }
 
   .stat-label {
-    @apply text-sm md:text-base text-white/50 uppercase tracking-wider font-medium mt-2;
+    @apply text-sm md:text-base text-white/50 uppercase tracking-wider font-medium mt-2 font-display;
   }
 
   /* Robot.com Style - Floating Elements */
@@ -139,6 +140,159 @@
   /* Robot.com Style - Gradient Text */
   .gradient-text {
     @apply bg-gradient-to-r from-neo-yellow via-yellow-300 to-neo-yellow bg-clip-text text-transparent;
+  }
+
+  .gradient-text-blue {
+    @apply bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400 bg-clip-text text-transparent;
+  }
+
+  /* Animated Gradient Border */
+  .gradient-border {
+    position: relative;
+    background: #0A0A0A;
+  }
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(255,208,88,0.4), transparent 40%, transparent 60%, rgba(96,165,250,0.3));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  /* Scan Line Effect */
+  .scan-lines::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(255, 255, 255, 0.015) 2px,
+      rgba(255, 255, 255, 0.015) 4px
+    );
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Neon Glow Text */
+  .neon-yellow {
+    text-shadow: 0 0 10px rgba(255,208,88,0.5), 0 0 40px rgba(255,208,88,0.2), 0 0 80px rgba(255,208,88,0.1);
+  }
+
+  .neon-blue {
+    text-shadow: 0 0 10px rgba(96,165,250,0.5), 0 0 40px rgba(96,165,250,0.2), 0 0 80px rgba(96,165,250,0.1);
+  }
+
+  /* Animated Background Gradient */
+  .animated-gradient-bg {
+    background: linear-gradient(-45deg, #0A0A0A, #1A1A1A, #0d1117, #111);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+  }
+
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* Circuit Line Decoration */
+  .circuit-line {
+    position: relative;
+  }
+  .circuit-line::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 40px;
+    height: 1px;
+    background: linear-gradient(90deg, #FFD058, transparent);
+  }
+  .circuit-line::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #FFD058;
+    transform: translateY(-50%);
+    box-shadow: 0 0 8px rgba(255,208,88,0.6);
+  }
+
+  /* Hex Grid Pattern */
+  .hex-pattern {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23FFD058' fill-opacity='0.04'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  /* Glowing Orb */
+  .glow-orb {
+    border-radius: 50%;
+    filter: blur(60px);
+    animation: orbPulse 4s ease-in-out infinite;
+  }
+  @keyframes orbPulse {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.1); }
+  }
+
+  /* Tech Card - Enhanced */
+  .tech-card {
+    @apply relative p-6 lg:p-8 rounded-2xl lg:rounded-3xl bg-gradient-to-br from-white/[0.06] to-white/[0.01] border border-white/[0.08] transition-all duration-500 overflow-hidden;
+  }
+  .tech-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,208,88,0.3), transparent);
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
+  @media (min-width: 1024px) {
+    .tech-card:hover {
+      @apply border-neo-yellow/20 -translate-y-1;
+      box-shadow: 0 20px 60px -15px rgba(255,208,88,0.1);
+    }
+    .tech-card:hover::before {
+      opacity: 1;
+    }
+  }
+
+  /* Animated Corner Accents */
+  .corner-accents {
+    position: relative;
+  }
+  .corner-accents::before,
+  .corner-accents::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 1px solid rgba(255,208,88,0.3);
+    transition: all 0.5s;
+  }
+  .corner-accents::before {
+    top: -1px;
+    left: -1px;
+    border-right: none;
+    border-bottom: none;
+  }
+  .corner-accents::after {
+    bottom: -1px;
+    right: -1px;
+    border-left: none;
+    border-top: none;
   }
 
   /* Robot.com Style - Dot Pattern Background */
@@ -241,7 +395,7 @@
 
   /* Robot.com Style - Badge */
   .robot-badge {
-    @apply inline-flex items-center gap-2 px-4 py-1.5 bg-neo-yellow text-neo-black text-xs font-bold uppercase tracking-wider rounded-full;
+    @apply inline-flex items-center gap-2 px-4 py-1.5 bg-neo-yellow text-neo-black text-xs font-bold uppercase tracking-wider rounded-full font-display;
   }
 
   .robot-badge-outline {
@@ -292,7 +446,7 @@
 
   /* Form Styles */
   .form-label {
-    @apply block text-sm font-medium text-white/70 mb-2;
+    @apply block text-sm font-medium text-white/70 mb-2 font-display uppercase tracking-wider;
   }
 
   .form-error {
@@ -600,6 +754,53 @@
   100% {
     transform: translateX(100%);
   }
+}
+
+/* Rotating border gradient */
+@keyframes borderRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Typing cursor blink */
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.animate-cursor-blink {
+  animation: cursorBlink 1s step-end infinite;
+}
+
+/* Horizontal line scan */
+@keyframes lineScan {
+  0% { top: -2px; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+.line-scan::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,208,88,0.6), transparent);
+  animation: lineScan 4s linear infinite;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Glow ring animation */
+@keyframes glowRing {
+  0% { box-shadow: 0 0 0 0 rgba(255,208,88,0.4); }
+  70% { box-shadow: 0 0 0 15px rgba(255,208,88,0); }
+  100% { box-shadow: 0 0 0 0 rgba(255,208,88,0); }
+}
+
+.animate-glow-ring {
+  animation: glowRing 2s infinite;
 }
 
 /* iOS-style blur background */

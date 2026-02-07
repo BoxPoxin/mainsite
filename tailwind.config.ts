@@ -22,6 +22,7 @@ const config: Config = {
       fontFamily: {
         sans: ['var(--font-main)', 'sans-serif'],
         mono: ['var(--font-mono)', 'monospace'],
+        display: ['var(--font-display)', 'sans-serif'],
       },
       boxShadow: {
         'neo': '4px 4px 0px 0px #0A0A0A',

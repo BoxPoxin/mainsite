@@ -56,7 +56,7 @@ function OrderConfirmationContent() {
             <div className="w-14 h-14 md:w-16 md:h-16 bg-neo-yellow/20 rounded-full flex items-center justify-center">
               <Loader2 className="w-7 h-7 md:w-8 md:h-8 text-neo-yellow animate-spin" />
             </div>
-            <h2 className="text-lg md:text-xl font-bold">Verifying Payment</h2>
+            <h2 className="text-lg md:text-xl font-bold font-display">Verifying Payment</h2>
             <p className="text-white/60 text-sm md:text-base">{message}</p>
           </div>
         )}
@@ -66,7 +66,7 @@ function OrderConfirmationContent() {
             <div className="w-16 h-16 md:w-20 md:h-20 bg-green-500/20 rounded-full flex items-center justify-center">
               <CheckCircle className="w-8 h-8 md:w-10 md:h-10 text-green-400" />
             </div>
-            <h2 className="text-xl md:text-2xl font-black text-green-400">Order Confirmed!</h2>
+            <h2 className="text-xl md:text-2xl font-black text-green-400 font-display">Order Confirmed!</h2>
             <p className="text-white/70 text-sm md:text-base">{message}</p>
             <p className="text-white/50 text-xs md:text-sm mt-1">
               You&apos;ll receive an email confirmation shortly.
@@ -95,7 +95,7 @@ function OrderConfirmationContent() {
             <div className="w-16 h-16 md:w-20 md:h-20 bg-red-500/20 rounded-full flex items-center justify-center">
               <XCircle className="w-8 h-8 md:w-10 md:h-10 text-red-400" />
             </div>
-            <h2 className="text-xl md:text-2xl font-black text-red-400">Payment Failed</h2>
+            <h2 className="text-xl md:text-2xl font-black text-red-400 font-display">Payment Failed</h2>
             <p className="text-white/70 text-sm md:text-base">{message}</p>
             <p className="text-white/50 text-xs md:text-sm mt-1">
               Don&apos;t worry, no amount has been deducted.

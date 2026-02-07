@@ -162,7 +162,7 @@ function SignInForm() {
               <div className="absolute inset-0 w-16 h-16 border-4 border-neo-yellow/30 rounded-full"></div>
               <div className="absolute inset-0 w-16 h-16 border-4 border-transparent border-t-neo-yellow rounded-full animate-spin"></div>
             </div>
-            <h3 className="text-xl font-bold text-white mb-2">Signing you in...</h3>
+            <h3 className="text-xl font-bold text-white mb-2 font-display">Signing you in...</h3>
             <p className="text-white/60 text-sm">Please wait a moment</p>
           </div>
         </div>
@@ -175,15 +175,16 @@ function SignInForm() {
           {/* Logo - Mobile optimized */}
           <Link href="/" className="inline-flex items-center gap-2 mb-6 md:mb-10">
             <Image 
-              src="/logo.png" 
+              src="/logo.png?v=2026" 
               alt="BoxPox Logo" 
               width={40} 
               height={40} 
               className="h-10 md:h-12 w-auto"
+              unoptimized
             />
           </Link>
 
-          <h1 className="text-2xl md:text-4xl font-black mb-1.5 tracking-tight text-white">Welcome back</h1>
+          <h1 className="text-2xl md:text-4xl font-black mb-1.5 tracking-tight text-white font-display">Welcome back</h1>
           <p className="text-white/60 text-sm md:text-base mb-6 md:mb-8">
             Sign in to continue to your account
           </p>
@@ -359,7 +360,7 @@ function SignInForm() {
           <div className="w-20 h-20 mx-auto mb-8 bg-neo-yellow rounded-2xl flex items-center justify-center shadow-2xl">
             <Sparkles size={36} className="text-neo-black" />
           </div>
-          <h2 className="text-3xl font-black mb-4">Box of Possibility</h2>
+          <h2 className="text-3xl font-black mb-4 font-display">Box of Possibility</h2>
           <p className="text-white/60 leading-relaxed mb-10">
             Sign in to access your account, track orders, and discover new innovations.
           </p>

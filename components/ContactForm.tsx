@@ -60,8 +60,8 @@ export default function ContactForm() {
         >
           <option value="">Select a topic</option>
           <option value="general">General Inquiry</option>
-          <option value="support">Product Support</option>
-          <option value="order">Order Status</option>
+          <option value="boxbot">BoxBot - Robotic Arm</option>
+          <option value="wocals">Wocals - Smart Glasses</option>
           <option value="partnership">Partnership</option>
           <option value="press">Press & Media</option>
           <option value="other">Other</option>

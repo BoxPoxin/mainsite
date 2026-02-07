@@ -89,7 +89,7 @@ export default async function AdminDashboard() {
     <div className="space-y-6">
       {/* Page Header */}
       <div>
-        <h1 className="text-2xl font-bold text-neutral-900">Dashboard</h1>
+        <h1 className="text-2xl font-bold text-neutral-900 font-display">Dashboard</h1>
         <p className="text-neutral-500 text-sm mt-1">Overview of your BoxPrint operations</p>
       </div>
       
@@ -208,7 +208,7 @@ export default async function AdminDashboard() {
       {/* Recent Orders Table */}
       <div className="bg-white rounded-xl border border-neutral-200 overflow-hidden">
         <div className="px-5 py-4 border-b border-neutral-200 flex items-center justify-between">
-          <h3 className="font-bold text-neutral-900">Recent Orders</h3>
+          <h3 className="font-bold text-neutral-900 font-display">Recent Orders</h3>
           <Link href="/admin/orders" className="text-sm text-blue-600 hover:underline">
             View all →
           </Link>

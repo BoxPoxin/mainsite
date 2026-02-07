@@ -158,11 +158,12 @@ export default function SignUp() {
         <div className="relative z-10 text-neo-black max-w-lg">
           <div className="mb-8">
             <Image 
-              src="/logo.png" 
+              src="/logo.png?v=2026" 
               alt="BoxPox Logo" 
               width={80} 
               height={80} 
               className="h-20 w-auto shadow-xl rounded-2xl"
+              unoptimized
             />
           </div>
           
@@ -194,11 +195,12 @@ export default function SignUp() {
           {/* Logo */}
           <Link href="/" className="inline-flex items-center gap-2 mb-6 md:mb-8">
             <Image 
-              src="/logo.png" 
+              src="/logo.png?v=2026" 
               alt="BoxPox Logo" 
               width={50} 
               height={50} 
               className="h-10 md:h-12 w-auto"
+              unoptimized
             />
           </Link>
 
