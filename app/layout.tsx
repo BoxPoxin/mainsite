@@ -23,9 +23,9 @@ const orbitron = Orbitron({
 });
 
 export const metadata: Metadata = {
-  title: "BoxPox — Robotics & Consumer Electronics",
-  description: "Consumer robotics and AI-powered electronics. BoxBot - 6DOF robotic arm. Wocals - AI smart glasses. Building the future of human-machine interaction.",
-  keywords: ["robotics", "consumer electronics", "robotic arm", "smart glasses", "AI", "BoxBot", "Wocals", "BoxPox"],
+  title: "BoxPox — Pro · Labs · Maker",
+  description: "BoxPox: Three studios, one vision. Pro for B2B engineering & PCB design. Labs for consumer robotics & AI tech. Maker for custom 3D printing & gifts.",
+  keywords: ["robotics", "PCB design", "3D printing", "consumer electronics", "robotic arm", "smart glasses", "AI", "BoxBot", "Wocals", "BoxPox", "custom gifts", "bulk orders"],
   icons: {
     icon: "/logo.png?v=2026",
     shortcut: "/logo.png?v=2026",
@@ -38,8 +38,8 @@ export const metadata: Metadata = {
   },
   manifest: "/manifest.json",
   openGraph: {
-    title: "BoxPox — Robotics & Consumer Electronics",
-    description: "Consumer robotics and AI-powered electronics designed to seamlessly integrate into your world.",
+    title: "BoxPox — Pro · Labs · Maker",
+    description: "Three studios under one roof. Engineering, consumer tech, and custom 3D printing. Built in India.",
     type: "website",
   },
 };

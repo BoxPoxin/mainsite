@@ -1,0 +1,278 @@
+'use client';
+
+import Link from 'next/link';
+import { ArrowRight, ArrowUpRight, Palette, Lamp, KeyRound, Gift, PackageCheck, Sparkles, ChevronRight, ShoppingBag, Truck, Users, Star } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
+
+function useInView(threshold = 0.15) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [isInView, setIsInView] = useState(false);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setIsInView(true); },
+      { threshold }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [threshold]);
+  return { ref, isInView };
+}
+
+const categories = [
+  {
+    icon: <Lamp size={32} />,
+    title: '3D Printed Lamps',
+    desc: 'Stunning lithophane and geometric lamps custom-designed for any space. From moon lamps to architectural lighting pieces.',
+    tags: ['Lithophane', 'Geometric', 'Moon Lamp', 'Custom Design'],
+    price: 'From ₹499',
+  },
+  {
+    icon: <KeyRound size={32} />,
+    title: 'Custom Keychains',
+    desc: 'Personalized 3D printed keychains in PLA, PETG, or resin. Perfect for corporate branding, events, and personal gifts.',
+    tags: ['PLA', 'Resin', 'Branded', 'Personalized'],
+    price: 'From ₹99',
+  },
+  {
+    icon: <Gift size={32} />,
+    title: 'Personalized Gifts',
+    desc: 'Unique 3D printed gifts including photo frames, figurines, nameplates, and custom memorabilia. No minimum order.',
+    tags: ['Photo Frames', 'Figurines', 'Nameplates', 'Memorabilia'],
+    price: 'From ₹299',
+  },
+  {
+    icon: <PackageCheck size={32} />,
+    title: 'Bulk & Corporate',
+    desc: 'Large-quantity orders for corporate events, employee gifting, brand merchandise, and promotional items. Volume discounts available.',
+    tags: ['500+ Units', 'Corporate', 'Events', 'Merch'],
+    price: 'Custom Quote',
+  },
+];
+
+const whyUs = [
+  { icon: <Star size={20} />, title: 'Premium Quality', desc: 'High-detail FDM and Resin printing with post-processing finish.' },
+  { icon: <Truck size={20} />, title: 'Fast Delivery', desc: 'Pan-India shipping with 3-7 day delivery on most orders.' },
+  { icon: <Users size={20} />, title: 'Bulk Friendly', desc: 'Competitive pricing for orders of 100+ units with dedicated support.' },
+  { icon: <ShoppingBag size={20} />, title: 'No MOQ', desc: 'Order even a single piece. No minimum order quantity for individuals.' },
+];
+
+export default function MakerPage() {
+  const hero = useInView(0.1);
+  const categoriesRef = useInView(0.1);
+  const whyRef = useInView(0.1);
+  const processRef = useInView(0.1);
+  const ctaRef = useInView(0.1);
+
+  return (
+    <main className="bg-neo-black">
+      {/* HERO */}
+      <section ref={hero.ref} className="min-h-[85vh] flex flex-col justify-center relative overflow-hidden pt-16 lg:pt-20">
+        <div className="absolute inset-0 animated-gradient-bg" />
+        <div className="absolute inset-0 hex-pattern" />
+        {/* Vibrant purple/pink accent orbs */}
+        <div className="absolute top-1/4 -left-40 w-[600px] h-[600px] bg-purple-500/[0.08] glow-orb" />
+        <div className="absolute bottom-1/4 -right-40 w-[500px] h-[500px] bg-pink-400/[0.06] glow-orb" style={{ animationDelay: '2s' }} />
+        <div className="absolute top-1/3 right-[20%] w-[300px] h-[300px] bg-purple-400/[0.04] glow-orb" style={{ animationDelay: '4s' }} />
+        <div className="absolute top-[20%] right-[12%] w-2 h-2 rounded-full bg-purple-400/50 animate-pulse" />
+        <div className="absolute top-[45%] left-[6%] w-1.5 h-1.5 rounded-full bg-pink-400/40 animate-pulse" style={{ animationDelay: '1.5s' }} />
+        <div className="absolute bottom-[30%] right-[18%] w-1 h-1 rounded-full bg-purple-400/30 animate-pulse" style={{ animationDelay: '3s' }} />
+
+        <div className={`container relative z-10 py-12 lg:py-20 transition-all duration-1000 ${hero.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          <div className="flex justify-center mb-6">
+            <div className="inline-flex items-center gap-3 px-5 py-2.5 bg-purple-400/10 border border-purple-400/20 rounded-full">
+              <Palette size={14} className="text-purple-400" />
+              <span className="text-purple-400 text-xs font-bold font-display tracking-widest">BOXPOX | MAKER</span>
+            </div>
+          </div>
+
+          <div className="text-center max-w-5xl mx-auto mb-8 lg:mb-12">
+            <h1 className="text-[42px] sm:text-5xl md:text-7xl lg:text-8xl font-black leading-[0.9] tracking-tight mb-6 lg:mb-8 font-display">
+              <span className="text-white block">Create</span>
+              <span className="text-purple-400 block" style={{ textShadow: '0 0 10px rgba(192,132,252,0.5), 0 0 40px rgba(192,132,252,0.2), 0 0 80px rgba(192,132,252,0.1)' }}>Anything.</span>
+            </h1>
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/50 max-w-2xl mx-auto leading-relaxed px-4">
+              Custom 3D printed lamps, keychains, gifts, and bulk orders. <span className="text-purple-400 font-semibold">Made personal, delivered fast.</span>
+            </p>
+          </div>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 lg:gap-4 mb-14 px-4">
+            <Link href="/boxprint" className="inline-flex items-center justify-center gap-3 px-8 lg:px-10 py-4 lg:py-5 bg-purple-400 text-neo-black font-bold text-base lg:text-lg rounded-full transition-all duration-300 font-display tracking-wider hover:bg-purple-300 hover:scale-105 w-full sm:w-auto group">
+              Start Custom Order
+              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+            </Link>
+            <Link href="/contact" className="robot-btn-outline text-base lg:text-lg px-8 lg:px-10 py-4 lg:py-5 w-full sm:w-auto justify-center">
+              Bulk Inquiry
+            </Link>
+          </div>
+
+          {/* Trust stats */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 lg:gap-8 max-w-4xl mx-auto px-2">
+            {[
+              { number: '500+', label: 'Orders Done' },
+              { number: '50+', label: 'Unique Designs' },
+              { number: '24hr', label: 'Print Turnaround' },
+              { number: '4.9★', label: 'Customer Rating' },
+            ].map((stat, i) => (
+              <div key={i} className="text-center p-4 rounded-2xl bg-white/[0.03] border border-purple-400/10 corner-accents">
+                <span className="text-2xl sm:text-3xl lg:text-4xl font-black text-purple-400 tracking-tighter block font-display">{stat.number}</span>
+                <span className="stat-label block text-[10px] sm:text-xs lg:text-sm mt-1">{stat.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* PRODUCT CATEGORIES */}
+      <section ref={categoriesRef.ref} className="py-16 lg:py-28 relative overflow-hidden">
+        <div className="absolute inset-0 grid-pattern opacity-30" />
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-400/20 to-transparent" />
+
+        <div className={`container relative z-10 transition-all duration-1000 delay-200 ${categoriesRef.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+          <div className="text-center max-w-3xl mx-auto mb-12 lg:mb-20">
+            <span className="inline-flex items-center gap-2 px-4 py-2 bg-purple-400/10 text-purple-400 text-xs font-bold uppercase tracking-widest rounded-full mb-6 font-display">
+              <Sparkles size={14} />
+              WHAT WE MAKE
+            </span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-4 lg:mb-6 font-display">
+              Custom <span className="text-purple-400" style={{ textShadow: '0 0 10px rgba(192,132,252,0.5), 0 0 40px rgba(192,132,252,0.2)' }}>creations</span><br />
+              for everyone
+            </h2>
+            <p className="text-white/50 text-sm sm:text-base lg:text-lg">
+              From a single personalized gift to 5,000 corporate giveaways — we print it all.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 gap-6 lg:gap-8">
+            {categories.map((cat, i) => (
+              <div key={i} className="group relative rounded-3xl overflow-hidden border border-purple-400/10 hover:border-purple-400/30 transition-all duration-700 hover:-translate-y-1">
+                <div className="absolute inset-0 bg-gradient-to-b from-purple-500/5 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute inset-0 hex-pattern opacity-15" />
+
+                <div className="relative z-10 p-6 sm:p-8 lg:p-10">
+                  <div className="flex items-start justify-between mb-6">
+                    <div className="w-14 h-14 lg:w-16 lg:h-16 rounded-2xl bg-purple-400/10 text-purple-400 flex items-center justify-center group-hover:bg-purple-400 group-hover:text-neo-black transition-all duration-500 group-hover:scale-110">
+                      {cat.icon}
+                    </div>
+                    <span className="px-4 py-1.5 text-xs font-bold text-purple-400 bg-purple-400/10 border border-purple-400/20 rounded-full font-display tracking-wider">
+                      {cat.price}
+                    </span>
+                  </div>
+
+                  <h3 className="text-xl lg:text-2xl font-black text-white mb-3 font-display group-hover:text-purple-400 transition-colors">{cat.title}</h3>
+                  <p className="text-white/50 text-sm leading-relaxed mb-6">{cat.desc}</p>
+
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {cat.tags.map(tag => (
+                      <span key={tag} className="px-3 py-1 text-[10px] sm:text-xs font-medium text-purple-400/60 bg-purple-400/5 border border-purple-400/10 rounded-full font-display tracking-wider">{tag}</span>
+                    ))}
+                  </div>
+
+                  <div className="inline-flex items-center gap-2 text-sm font-bold font-display tracking-wider uppercase text-purple-400 transition-all duration-300">
+                    Order Now
+                    <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* WHY US */}
+      <section ref={whyRef.ref} className="py-16 lg:py-28 bg-neo-gray/40 relative overflow-hidden">
+        <div className="absolute inset-0 hex-pattern opacity-20" />
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-400/20 to-transparent" />
+
+        <div className={`container relative z-10 transition-all duration-1000 delay-200 ${whyRef.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+          <div className="text-center max-w-3xl mx-auto mb-12 lg:mb-16">
+            <span className="inline-flex items-center gap-2 px-4 py-2 bg-purple-400/10 text-purple-400 text-xs font-bold uppercase tracking-widest rounded-full mb-6 font-display">
+              <Star size={14} />
+              WHY BOXPOX MAKER
+            </span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mb-4 lg:mb-6 font-display">
+              Why customers<br />
+              <span className="text-purple-400" style={{ textShadow: '0 0 10px rgba(192,132,252,0.5)' }}>love us</span>
+            </h2>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+            {whyUs.map((item, i) => (
+              <div key={i} className="group p-6 lg:p-8 rounded-2xl bg-white/[0.03] border border-purple-400/10 hover:border-purple-400/30 transition-all duration-500 text-center">
+                <div className="w-12 h-12 rounded-xl bg-purple-400/10 flex items-center justify-center text-purple-400 mx-auto mb-4 group-hover:bg-purple-400 group-hover:text-neo-black transition-all duration-300">
+                  {item.icon}
+                </div>
+                <h4 className="font-display font-bold text-white text-base mb-2">{item.title}</h4>
+                <p className="text-white/50 text-sm leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* HOW IT WORKS */}
+      <section ref={processRef.ref} className="py-16 lg:py-28 relative overflow-hidden">
+        <div className="absolute inset-0 grid-pattern opacity-30" />
+
+        <div className={`container relative z-10 transition-all duration-1000 delay-200 ${processRef.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+          <div className="text-center max-w-3xl mx-auto mb-12 lg:mb-20">
+            <span className="inline-flex items-center gap-2 px-4 py-2 bg-purple-400/10 text-purple-400 text-xs font-bold uppercase tracking-widest rounded-full mb-6 font-display">
+              <PackageCheck size={14} />
+              HOW IT WORKS
+            </span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mb-4 font-display">
+              Order in <span className="text-purple-400">3 steps</span>
+            </h2>
+          </div>
+
+          <div className="grid sm:grid-cols-3 gap-6 lg:gap-8 max-w-4xl mx-auto">
+            {[
+              { step: '01', title: 'Choose or Upload', desc: 'Pick from our catalog or upload your own 3D model / design idea.' },
+              { step: '02', title: 'Customize', desc: 'Select material, color, size, and add text or images for personalization.' },
+              { step: '03', title: 'We Print & Ship', desc: 'We 3D print, finish, and ship your order with tracking. Pan-India delivery.' },
+            ].map((item, i) => (
+              <div key={i} className="relative group text-center">
+                <div className="p-6 lg:p-8 rounded-2xl bg-white/[0.03] border border-purple-400/10 hover:border-purple-400/30 transition-all duration-500">
+                  <span className="text-5xl lg:text-6xl font-black text-purple-400/20 font-display block mb-4 group-hover:text-purple-400/40 transition-colors">{item.step}</span>
+                  <h3 className="text-lg font-bold text-white mb-2 font-display">{item.title}</h3>
+                  <p className="text-white/50 text-sm leading-relaxed">{item.desc}</p>
+                </div>
+                {i < 2 && (
+                  <div className="hidden sm:block absolute top-1/2 -right-4 transform -translate-y-1/2 z-10">
+                    <ChevronRight size={16} className="text-purple-400/30" />
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section ref={ctaRef.ref} className="py-16 lg:py-28 border-t border-white/10 relative overflow-hidden">
+        <div className="absolute inset-0 animated-gradient-bg opacity-50" />
+        <div className="absolute top-1/3 -left-40 w-[400px] h-[400px] bg-purple-500/[0.05] glow-orb" />
+        <div className={`container relative z-10 transition-all duration-1000 delay-200 ${ctaRef.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white mb-4 lg:mb-6 leading-[0.95] font-display">
+              Ready to create<br />
+              <span className="text-purple-400" style={{ textShadow: '0 0 10px rgba(192,132,252,0.5), 0 0 40px rgba(192,132,252,0.2)' }}>something unique?</span>
+            </h2>
+            <p className="text-white/50 text-base sm:text-lg md:text-xl mb-8 max-w-xl mx-auto">
+              Start your custom order today or contact us for bulk pricing and corporate gifting solutions.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 lg:gap-4">
+              <Link href="/boxprint" className="inline-flex items-center justify-center gap-3 px-8 lg:px-10 py-4 lg:py-5 bg-purple-400 text-neo-black font-bold text-base lg:text-lg rounded-full transition-all duration-300 font-display tracking-wider hover:bg-purple-300 hover:scale-105 w-full sm:w-auto group">
+                Start Custom Order
+                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+              </Link>
+              <Link href="/contact" className="robot-btn-outline text-base lg:text-lg px-8 lg:px-10 py-4 lg:py-5 w-full sm:w-auto justify-center group">
+                Contact for Bulk
+                <ArrowUpRight size={16} />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+}
