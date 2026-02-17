@@ -3,14 +3,11 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
-import { Menu, X, User, ArrowRight } from 'lucide-react';
-import { createClient } from '@/utils/supabase/client';
+import { Menu, X, ArrowRight } from 'lucide-react';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [user, setUser] = useState<{ email?: string; user_metadata?: { first_name?: string } } | null>(null);
-  const supabase = createClient();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -18,17 +15,7 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  useEffect(() => {
-    const getUser = async () => {
-      const { data: { user } } = await supabase.auth.getUser();
-      setUser(user);
-    };
-    getUser();
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
-      setUser(session?.user ?? null);
-    });
-    return () => subscription.unsubscribe();
-  }, [supabase.auth]);
+
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? 'hidden' : 'unset';
@@ -36,7 +23,9 @@ export default function Navbar() {
   }, [isOpen]);
 
   const navLinks = [
-    { href: '/products', label: 'Products' },
+    { href: '/pro', label: 'Pro' },
+    { href: '/labs', label: 'Labs' },
+    { href: '/maker', label: 'Maker' },
     { href: '/about', label: 'About' },
     { href: '/contact', label: 'Contact' },
   ];
@@ -63,15 +52,6 @@ export default function Navbar() {
 
             {/* Desktop Actions */}
             <div className="hidden lg:flex items-center gap-4">
-              {user ? (
-                <Link href="/account" className="flex items-center gap-2 text-white/70 hover:text-white transition-colors">
-                  <div className="w-9 h-9 rounded-full bg-neo-yellow flex items-center justify-center">
-                    <User size={18} className="text-neo-black" />
-                  </div>
-                </Link>
-              ) : (
-                <Link href="/signin" className="text-white/70 hover:text-white transition-colors font-medium text-sm">Sign In</Link>
-              )}
               <Link href="/contact" className="robot-btn py-3 px-6 text-sm font-display tracking-wider">
                 Get in Touch
                 <ArrowRight size={16} />
@@ -98,29 +78,7 @@ export default function Navbar() {
         <div className={`relative h-full flex flex-col pt-20 px-5 transition-all duration-300 ${
           isOpen ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0'
         }`}>
-          {/* User Section */}
-          <div className="mb-6 pb-6 border-b border-white/10">
-            {user ? (
-              <Link href="/account" onClick={() => setIsOpen(false)} className="flex items-center gap-4">
-                <div className="w-14 h-14 rounded-full bg-neo-yellow flex items-center justify-center">
-                  <User size={24} className="text-neo-black" />
-                </div>
-                <div>
-                  <p className="text-white font-bold text-lg">{user.user_metadata?.first_name || 'Welcome back'}</p>
-                  <p className="text-white/50 text-sm">{user.email}</p>
-                </div>
-              </Link>
-            ) : (
-              <div className="flex gap-3">
-                <Link href="/signin" onClick={() => setIsOpen(false)} className="flex-1 py-4 rounded-2xl bg-neo-yellow text-neo-black font-bold text-center active:scale-[0.98] transition-transform">
-                  Sign In
-                </Link>
-                <Link href="/signup" onClick={() => setIsOpen(false)} className="flex-1 py-4 rounded-2xl bg-white/10 text-white font-bold text-center active:scale-[0.98] transition-transform">
-                  Sign Up
-                </Link>
-              </div>
-            )}
-          </div>
+
 
           {/* Navigation Links */}
           <nav className="flex-1 space-y-1">

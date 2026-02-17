@@ -2,34 +2,18 @@
 
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-import { Home, CircuitBoard, User, MessageSquare } from 'lucide-react';
-import { useEffect, useState } from 'react';
-import { createClient } from '@/utils/supabase/client';
+import { Home, CircuitBoard, Palette, Cpu } from 'lucide-react';
 
 export default function MobileBottomNav() {
   const pathname = usePathname();
-  const [user, setUser] = useState<{ email?: string } | null>(null);
-  const supabase = createClient();
-
-  useEffect(() => {
-    const getUser = async () => {
-      const { data: { user } } = await supabase.auth.getUser();
-      setUser(user);
-    };
-    getUser();
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
-      setUser(session?.user ?? null);
-    });
-    return () => subscription.unsubscribe();
-  }, [supabase.auth]);
 
   if (pathname.startsWith('/admin')) return null;
 
   const navItems = [
     { href: '/', icon: Home, label: 'Home', isActive: pathname === '/' },
-    { href: '/products', icon: CircuitBoard, label: 'Products', isActive: pathname === '/products' },
-    { href: '/contact', icon: MessageSquare, label: 'Contact', isActive: pathname === '/contact' },
-    { href: user ? '/account' : '/signin', icon: User, label: user ? 'Account' : 'Sign In', isActive: pathname === '/account' || pathname === '/signin' },
+    { href: '/pro', icon: CircuitBoard, label: 'Pro', isActive: pathname === '/pro' },
+    { href: '/labs', icon: Cpu, label: 'Labs', isActive: pathname === '/labs' },
+    { href: '/maker', icon: Palette, label: 'Maker', isActive: pathname === '/maker' },
   ];
 
   return (

@@ -8,9 +8,10 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   const footerLinks = {
-    products: [
-      { label: 'BoxBot', href: '/products#boxbot' },
-      { label: 'Wocals', href: '/products#wocals' },
+    studios: [
+      { label: 'Pro — Engineering', href: '/pro' },
+      { label: 'Labs — Consumer Tech', href: '/labs' },
+      { label: 'Maker — Custom & Bulk', href: '/maker' },
       { label: 'All Products', href: '/products' },
     ],
     company: [
@@ -39,16 +40,26 @@ export default function Footer() {
           <div className="container py-16 md:py-24">
             <div className="max-w-4xl mx-auto text-center">
               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white mb-4 lg:mb-6 leading-[0.95] font-display">
-                Ready to explore the<br />
-                <span className="text-neo-yellow">future of robotics?</span>
+                Find the right<br />
+                <span className="text-neo-yellow">studio for you</span>
               </h2>
               <p className="text-white/50 text-base sm:text-lg md:text-xl mb-8 max-w-xl mx-auto">
-                Join us on our mission to make consumer robotics accessible to everyone.
+                Engineering, consumer tech, or custom creations — discover what BoxPox can do for you.
               </p>
-              <Link href="/products" className="robot-btn text-base lg:text-lg px-8 lg:px-10 py-4 lg:py-5">
-                Explore Products
-                <ArrowRight size={20} />
-              </Link>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+                <Link href="/pro" className="robot-btn text-sm px-6 py-3">
+                  Pro
+                  <ArrowRight size={16} />
+                </Link>
+                <Link href="/labs" className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-blue-400 text-neo-black font-bold text-sm rounded-full transition-all duration-300 font-display tracking-wider hover:bg-blue-300">
+                  Labs
+                  <ArrowRight size={16} />
+                </Link>
+                <Link href="/maker" className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-purple-400 text-neo-black font-bold text-sm rounded-full transition-all duration-300 font-display tracking-wider hover:bg-purple-300">
+                  Maker
+                  <ArrowRight size={16} />
+                </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -66,7 +77,7 @@ export default function Footer() {
                   <span className="text-white font-bold text-xl font-display">BoxPox</span>
                 </Link>
                 <p className="text-white/40 text-sm leading-relaxed mb-6 max-w-xs">
-                  Robotics &amp; consumer electronics for the humans of tomorrow. Building the future, one product at a time.
+                  Three studios — Pro, Labs &amp; Maker — engineering the future, one product at a time.
                 </p>
                 <div className="flex gap-3">
                   {['Twitter', 'Instagram', 'LinkedIn'].map((social) => (
@@ -77,11 +88,11 @@ export default function Footer() {
                 </div>
               </div>
 
-              {/* Products */}
+              {/* Studios */}
               <div>
-                <h4 className="text-white font-semibold mb-5 text-sm uppercase tracking-wider font-display">Products</h4>
+                <h4 className="text-white font-semibold mb-5 text-sm uppercase tracking-wider font-display">Studios</h4>
                 <ul className="space-y-3">
-                  {footerLinks.products.map((link) => (
+                  {footerLinks.studios.map((link) => (
                     <li key={link.label}>
                       <Link href={link.href} className="text-white/40 hover:text-neo-yellow transition-colors text-sm inline-flex items-center gap-1 group">
                         {link.label}
