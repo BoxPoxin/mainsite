@@ -818,10 +818,9 @@
     animation: none !important;
   }
   
-  /* Optimize rendering performance */
-  section {
-    content-visibility: auto;
-    contain-intrinsic-size: auto 500px;
+  /* Hide large decorative orbs on mobile for performance */
+  .glow-orb {
+    display: none !important;
   }
   
   /* Faster transitions on mobile */

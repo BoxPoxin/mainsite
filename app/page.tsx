@@ -7,16 +7,29 @@ import FAQ from '@/components/FAQ';
 import Newsletter from '@/components/Newsletter';
 
 function useInView(threshold = 0.15) {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLElement>(null);
   const [isInView, setIsInView] = useState(false);
 
   useEffect(() => {
+    const el = ref.current;
+    if (!el) { setIsInView(true); return; }
+
+    // Immediate check — element may already be visible
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      setIsInView(true);
+      return;
+    }
+
+    // Fallback timer — ensure content is always shown
+    const timer = setTimeout(() => setIsInView(true), 800);
+
     const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setIsInView(true); },
-      { threshold }
+      ([entry]) => { if (entry.isIntersecting) { setIsInView(true); clearTimeout(timer); } },
+      { threshold, rootMargin: '50px' }
     );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
+    observer.observe(el);
+    return () => { observer.disconnect(); clearTimeout(timer); };
   }, [threshold]);
 
   return { ref, isInView };

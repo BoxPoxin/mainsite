@@ -5,15 +5,20 @@ import { ArrowRight, ArrowUpRight, Cpu, Eye, Rocket, BrainCircuit, Wifi, Zap, Ch
 import { useEffect, useRef, useState } from 'react';
 
 function useInView(threshold = 0.15) {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLElement>(null);
   const [isInView, setIsInView] = useState(false);
   useEffect(() => {
+    const el = ref.current;
+    if (!el) { setIsInView(true); return; }
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) { setIsInView(true); return; }
+    const timer = setTimeout(() => setIsInView(true), 800);
     const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setIsInView(true); },
-      { threshold }
+      ([entry]) => { if (entry.isIntersecting) { setIsInView(true); clearTimeout(timer); } },
+      { threshold, rootMargin: '50px' }
     );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
+    observer.observe(el);
+    return () => { observer.disconnect(); clearTimeout(timer); };
   }, [threshold]);
   return { ref, isInView };
 }
@@ -59,7 +64,7 @@ export default function LabsPage() {
   return (
     <main className="bg-neo-black">
       {/* HERO */}
-      <section ref={hero.ref} className="min-h-[85vh] flex flex-col justify-center relative overflow-hidden pt-16 lg:pt-20">
+      <section ref={hero.ref} className="min-h-[70vh] lg:min-h-[85vh] flex flex-col justify-center relative overflow-hidden pt-16 lg:pt-20">
         <div className="absolute inset-0 animated-gradient-bg" />
         <div className="absolute inset-0 hex-pattern" />
         <div className="absolute inset-0 scan-lines" />

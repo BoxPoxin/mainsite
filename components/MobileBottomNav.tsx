@@ -7,7 +7,7 @@ import { Home, CircuitBoard, Palette, Cpu } from 'lucide-react';
 export default function MobileBottomNav() {
   const pathname = usePathname();
 
-  if (pathname.startsWith('/admin')) return null;
+  if (pathname.startsWith('/admin') || pathname.startsWith('/signin') || pathname.startsWith('/signup') || pathname.startsWith('/auth')) return null;
 
   const navItems = [
     { href: '/', icon: Home, label: 'Home', isActive: pathname === '/' },
