@@ -17,7 +17,7 @@ export async function updateSession(request: NextRequest) {
           return request.cookies.getAll()
         },
         setAll(cookiesToSet) {
-          cookiesToSet.forEach(({ name, value, options }) => {
+          cookiesToSet.forEach(({ name, value }) => {
             request.cookies.set(name, value)
           })
           response = NextResponse.next({
@@ -33,7 +33,9 @@ export async function updateSession(request: NextRequest) {
     }
   )
 
-  await supabase.auth.getUser()
+  // Use getSession() instead of getUser() — reads from cookie with no
+  // external network call, preventing MIDDLEWARE_INVOCATION_TIMEOUT on Vercel.
+  await supabase.auth.getSession()
 
   return response
 }
