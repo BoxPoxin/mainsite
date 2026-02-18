@@ -8,12 +8,17 @@ export async function middleware(request: NextRequest) {
 export const config = {
   matcher: [
     /*
-     * Match all request paths except for the ones starting with:
-     * - _next/static (static files)
-     * - _next/image (image optimization files)
-     * - favicon.ico (favicon file)
-     * Feel free to modify this pattern to include more paths.
+     * Only run middleware on routes that need auth:
+     * - /admin (admin dashboard)
+     * - /account (user account)
+     * - /checkout (requires login)
+     * - /order-tracking (requires login)
+     * Public pages (home, pro, labs, maker, etc.) are excluded
+     * to avoid MIDDLEWARE_INVOCATION_TIMEOUT on Vercel.
      */
-    '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)',
+    '/admin/:path*',
+    '/account/:path*',
+    '/checkout/:path*',
+    '/order-tracking/:path*',
   ],
 }
