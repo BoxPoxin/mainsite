@@ -2,30 +2,19 @@
 
 import Link from 'next/link';
 import { ArrowRight, Cpu, Palette, Rocket, Zap, ChevronRight, CircuitBoard, Eye, Gift } from 'lucide-react';
-import { useEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
 import FAQ from '@/components/FAQ';
 import Newsletter from '@/components/Newsletter';
 
-function useInView(threshold = 0.15) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [isInView, setIsInView] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setIsInView(true); },
-      { threshold }
-    );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, [threshold]);
-
-  return { ref, isInView };
+function useInView() {
+  const ref = useRef<HTMLElement>(null);
+  return { ref, isInView: true };
 }
 
 export default function Home() {
-  const hero = useInView(0.1);
-  const gateway = useInView(0.1);
-  const highlights = useInView(0.1);
+  const hero = useInView();
+  const gateway = useInView();
+  const highlights = useInView();
 
   return (
     <main className="bg-neo-black">

@@ -2,20 +2,11 @@
 
 import Link from 'next/link';
 import { ArrowRight, CircuitBoard, Cpu, Code2, Cog, BrainCircuit, Shield, Zap, ChevronRight, CheckCircle2, ArrowUpRight } from 'lucide-react';
-import { useEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
 
-function useInView(threshold = 0.15) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [isInView, setIsInView] = useState(false);
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setIsInView(true); },
-      { threshold }
-    );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, [threshold]);
-  return { ref, isInView };
+function useInView() {
+  const ref = useRef<HTMLElement>(null);
+  return { ref, isInView: true };
 }
 
 const services = [
@@ -71,15 +62,15 @@ const process = [
 ];
 
 export default function ProPage() {
-  const hero = useInView(0.1);
-  const servicesRef = useInView(0.1);
-  const processRef = useInView(0.1);
-  const ctaRef = useInView(0.1);
+  const hero = useInView();
+  const servicesRef = useInView();
+  const processRef = useInView();
+  const ctaRef = useInView();
 
   return (
     <main className="bg-neo-black">
       {/* HERO */}
-      <section ref={hero.ref} className="min-h-[85vh] flex flex-col justify-center relative overflow-hidden pt-16 lg:pt-20">
+      <section ref={hero.ref} className="min-h-[70vh] lg:min-h-[85vh] flex flex-col justify-center relative overflow-hidden pt-16 lg:pt-20">
         <div className="absolute inset-0 animated-gradient-bg" />
         <div className="absolute inset-0 scan-lines" />
         {/* Schematic grid */}
