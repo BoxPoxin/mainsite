@@ -2,43 +2,19 @@
 
 import Link from 'next/link';
 import { ArrowRight, Cpu, Palette, Rocket, Zap, ChevronRight, CircuitBoard, Eye, Gift } from 'lucide-react';
-import { useEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
 import FAQ from '@/components/FAQ';
 import Newsletter from '@/components/Newsletter';
 
-function useInView(threshold = 0.15) {
+function useInView() {
   const ref = useRef<HTMLElement>(null);
-  const [isInView, setIsInView] = useState(false);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) { setIsInView(true); return; }
-
-    // Immediate check — element may already be visible
-    const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight && rect.bottom > 0) {
-      setIsInView(true);
-      return;
-    }
-
-    // Fallback timer — ensure content is always shown
-    const timer = setTimeout(() => setIsInView(true), 800);
-
-    const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { setIsInView(true); clearTimeout(timer); } },
-      { threshold, rootMargin: '50px' }
-    );
-    observer.observe(el);
-    return () => { observer.disconnect(); clearTimeout(timer); };
-  }, [threshold]);
-
-  return { ref, isInView };
+  return { ref, isInView: true };
 }
 
 export default function Home() {
-  const hero = useInView(0.1);
-  const gateway = useInView(0.1);
-  const highlights = useInView(0.1);
+  const hero = useInView();
+  const gateway = useInView();
+  const highlights = useInView();
 
   return (
     <main className="bg-neo-black">

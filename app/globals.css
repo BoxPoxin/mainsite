@@ -66,7 +66,6 @@
   /* Robot.com Style - Dark Cards */
   .robot-card {
     @apply bg-neo-gray rounded-3xl p-8 md:p-10 transition-all duration-300 relative overflow-hidden;
-    content-visibility: auto;
   }
 
   @media (min-width: 1024px) {
@@ -355,7 +354,6 @@
   /* Robot.com Style - Feature Card */
   .feature-card {
     @apply relative p-6 lg:p-8 rounded-2xl lg:rounded-3xl bg-gradient-to-br from-white/5 to-transparent border border-white/10 transition-all duration-300;
-    content-visibility: auto;
   }
 
   @media (min-width: 1024px) {
@@ -367,7 +365,6 @@
   /* Robot.com Style - Product Card */
   .product-card {
     @apply relative rounded-3xl overflow-hidden bg-neo-gray transition-all duration-300 group;
-    content-visibility: auto;
   }
 
   @media (min-width: 1024px) {
@@ -571,22 +568,12 @@
   scrollbar-width: none;
 }
 
-/* Mobile-first responsive utilities */
-@media (max-width: 640px) {
-  h1 {
-    @apply text-4xl;
-  }
-  
-  h2 {
-    @apply text-3xl;
-  }
-  
-  h3 {
-    @apply text-xl;
-  }
-  
-  .container {
-    @apply px-5;
+/* Mobile-first responsive utilities — kept inside @layer so Tailwind utilities can override */
+@layer base {
+  @media (max-width: 640px) {
+    .container {
+      @apply px-5;
+    }
   }
 }
 

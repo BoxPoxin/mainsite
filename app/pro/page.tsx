@@ -2,25 +2,11 @@
 
 import Link from 'next/link';
 import { ArrowRight, CircuitBoard, Cpu, Code2, Cog, BrainCircuit, Shield, Zap, ChevronRight, CheckCircle2, ArrowUpRight } from 'lucide-react';
-import { useEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
 
-function useInView(threshold = 0.15) {
+function useInView() {
   const ref = useRef<HTMLElement>(null);
-  const [isInView, setIsInView] = useState(false);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) { setIsInView(true); return; }
-    const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight && rect.bottom > 0) { setIsInView(true); return; }
-    const timer = setTimeout(() => setIsInView(true), 800);
-    const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { setIsInView(true); clearTimeout(timer); } },
-      { threshold, rootMargin: '50px' }
-    );
-    observer.observe(el);
-    return () => { observer.disconnect(); clearTimeout(timer); };
-  }, [threshold]);
-  return { ref, isInView };
+  return { ref, isInView: true };
 }
 
 const services = [
@@ -76,10 +62,10 @@ const process = [
 ];
 
 export default function ProPage() {
-  const hero = useInView(0.1);
-  const servicesRef = useInView(0.1);
-  const processRef = useInView(0.1);
-  const ctaRef = useInView(0.1);
+  const hero = useInView();
+  const servicesRef = useInView();
+  const processRef = useInView();
+  const ctaRef = useInView();
 
   return (
     <main className="bg-neo-black">
