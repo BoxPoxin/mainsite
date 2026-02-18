@@ -5,18 +5,9 @@ import { ArrowRight, Palette, Gift, Package, ShoppingBag, Truck, Star, Zap, Chev
 import { useEffect, useRef, useState } from 'react';
 import { createClient } from '@/utils/supabase/client';
 
-function useInView(threshold = 0.15) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [isInView, setIsInView] = useState(false);
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setIsInView(true); },
-      { threshold }
-    );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, [threshold]);
-  return { ref, isInView };
+function useInView() {
+  const ref = useRef<HTMLElement>(null);
+  return { ref, isInView: true };
 }
 
 
@@ -147,9 +138,9 @@ const demoProducts = [
 const categoryFilters = ['All', 'Lamps', 'Keychains', 'Gifts', 'Bulk Orders'];
 
 export default function MakerPage() {
-  const hero = useInView(0.1);
-  const productsRef = useInView(0.1);
-  const howRef = useInView(0.1);
+  const hero = useInView();
+  const productsRef = useInView();
+  const howRef = useInView();
   const [activeCategory, setActiveCategory] = useState('All');
   const [user, setUser] = useState<{ email?: string; user_metadata?: { first_name?: string } } | null>(null);
   const supabase = createClient();

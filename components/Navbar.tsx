@@ -3,19 +3,22 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import { Menu, X, ArrowRight } from 'lucide-react';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+
+  // Close mobile menu on route change
+  useEffect(() => { setIsOpen(false); }, [pathname]);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? 'hidden' : 'unset';
@@ -78,8 +81,6 @@ export default function Navbar() {
         <div className={`relative h-full flex flex-col pt-20 px-5 transition-all duration-300 ${
           isOpen ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0'
         }`}>
-
-
           {/* Navigation Links */}
           <nav className="flex-1 space-y-1">
             {navLinks.map((link, i) => (
