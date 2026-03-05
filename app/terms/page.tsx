@@ -24,7 +24,7 @@ export default function TermsOfService() {
                 PLATFORM OWNERSHIP
               </h2>
               <p>
-                The Platform is owned by with its registered office at <span className="font-bold text-white">1617 sector 70 mohali</span>, a company incorporated under the Companies Act, 1956 <span className="font-bold text-white">7888601710</span> (hereinafter referred to as &apos;Platform Owner&apos;, &apos;we&apos;, &apos;us&apos;, &apos;our&apos;).
+                The Platform is owned by with its registered office at <span className="font-bold text-white">D-180, Phase 8B, Industrial Area, Sector 74, Sahibzada Ajit Singh Nagar, Punjab 160055</span>, a company incorporated under the Companies Act, 1956 <span className="font-bold text-white">7888601710</span> (hereinafter referred to as &apos;Platform Owner&apos;, &apos;we&apos;, &apos;us&apos;, &apos;our&apos;).
               </p>
             </div>
 

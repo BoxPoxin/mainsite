@@ -44,7 +44,7 @@ export default function PrivacyPolicy() {
                 <p><span className="text-white/40">OFFICE:</span> <span className="text-white">BOXPOX COMPLIANCE</span></p>
                 <p><span className="text-white/40">CONTACT:</span> <span className="text-white">7888601710</span></p>
                 <p><span className="text-white/40">TIME:</span> <span className="text-white">MON - FRI (9:00 - 18:00)</span></p>
-                <p><span className="text-white/40">ADDRESS:</span> <span className="text-white">1617 SECTOR 70, MOHALI, PUNJAB</span></p>
+                <p><span className="text-white/40">ADDRESS:</span> <span className="text-white">D-180, PHASE 8B, INDUSTRIAL AREA, SECTOR 74, SAHIBZADA AJIT SINGH NAGAR, PUNJAB 160055</span></p>
               </div>
             </section>
           </div>

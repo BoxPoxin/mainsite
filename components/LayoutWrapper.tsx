@@ -12,22 +12,16 @@ interface LayoutWrapperProps {
 export default function LayoutWrapper({ children }: LayoutWrapperProps) {
   const pathname = usePathname();
   
-  // Hide Navbar and Footer on admin pages and auth pages
+  // Hide Navbar and Footer on admin pages
   const isAdminPage = pathname?.startsWith('/admin');
-  const isAuthPage = pathname?.startsWith('/signin') || 
-                     pathname?.startsWith('/signup') || 
-                     pathname?.startsWith('/auth');
-  
-  const hideNavbar = isAdminPage || isAuthPage;
-  const hideFooter = isAdminPage || isAuthPage;
   
   return (
     <>
-      {!hideNavbar && <Navbar />}
+      {!isAdminPage && <Navbar />}
       <div className="lg:pb-0 pb-20">
         {children}
       </div>
-      {!hideFooter && <Footer />}
+      {!isAdminPage && <Footer />}
       {!isAdminPage && <MobileBottomNav />}
     </>
   );

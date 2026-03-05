@@ -9,7 +9,7 @@ export default function Contact() {
   ];
 
   const contactInfo = [
-    { icon: <MapPin size={20} />, label: "Address", value: "1617 Sector 70, Mohali 160071", subtext: "Punjab, India" },
+    { icon: <MapPin size={20} />, label: "Address", value: "D-180, Phase 8B, Industrial Area, Sector 74", subtext: "SAS Nagar, Punjab 160055" },
     { icon: <Phone size={20} />, label: "Phone", value: "+91 7888601710 (Main)", subtext: "+91 9835502288 (Secondary)" },
     { icon: <Mail size={20} />, label: "Email", value: "info@boxpox.in", subtext: "We reply within 24 hours" },
     { icon: <Clock size={20} />, label: "Working Hours", value: "Monday - Friday", subtext: "9:00 AM - 6:00 PM IST" },

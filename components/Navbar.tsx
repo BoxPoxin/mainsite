@@ -25,10 +25,10 @@ export default function Navbar() {
     return () => { document.body.style.overflow = 'unset'; };
   }, [isOpen]);
 
-  const navLinks = [
+  const navLinks: { href: string; label: string; external?: boolean }[] = [
     { href: '/pro', label: 'Pro' },
     { href: '/labs', label: 'Labs' },
-    { href: '/maker', label: 'Maker' },
+    { href: 'https://boxpox-2.myshopify.com', label: 'Shop', external: true },
     { href: '/about', label: 'About' },
     { href: '/contact', label: 'Contact' },
   ];
@@ -48,9 +48,13 @@ export default function Navbar() {
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-8">
-              {navLinks.map((link) => (
-                <Link key={link.href} href={link.href} className="nav-link font-display tracking-wider text-xs">{link.label}</Link>
-              ))}
+              {navLinks.map((link) => 
+                link.external ? (
+                  <a key={link.href} href={link.href} target="_blank" rel="noopener noreferrer" className="nav-link font-display tracking-wider text-xs">{link.label}</a>
+                ) : (
+                  <Link key={link.href} href={link.href} className="nav-link font-display tracking-wider text-xs">{link.label}</Link>
+                )
+              )}
             </div>
 
             {/* Desktop Actions */}
@@ -83,18 +87,33 @@ export default function Navbar() {
         }`}>
           {/* Navigation Links */}
           <nav className="flex-1 space-y-1">
-            {navLinks.map((link, i) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setIsOpen(false)}
-                className={`flex items-center justify-between p-4 rounded-2xl text-lg font-semibold transition-all active:scale-[0.98] hover:bg-white/5 ${isOpen ? 'animate-fade-in-up' : ''}`}
-                style={{ animationDelay: `${i * 0.05}s` }}
-              >
-                <span className="text-white">{link.label}</span>
-                <ArrowRight size={18} className="text-white/30" />
-              </Link>
-            ))}
+            {navLinks.map((link, i) => 
+              link.external ? (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setIsOpen(false)}
+                  className={`flex items-center justify-between p-4 rounded-2xl text-lg font-semibold transition-all active:scale-[0.98] hover:bg-white/5 ${isOpen ? 'animate-fade-in-up' : ''}`}
+                  style={{ animationDelay: `${i * 0.05}s` }}
+                >
+                  <span className="text-white">{link.label}</span>
+                  <ArrowRight size={18} className="text-white/30" />
+                </a>
+              ) : (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setIsOpen(false)}
+                  className={`flex items-center justify-between p-4 rounded-2xl text-lg font-semibold transition-all active:scale-[0.98] hover:bg-white/5 ${isOpen ? 'animate-fade-in-up' : ''}`}
+                  style={{ animationDelay: `${i * 0.05}s` }}
+                >
+                  <span className="text-white">{link.label}</span>
+                  <ArrowRight size={18} className="text-white/30" />
+                </Link>
+              )
+            )}
           </nav>
 
           {/* Quick Actions */}
