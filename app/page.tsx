@@ -46,11 +46,11 @@ export default function Home() {
                 Consumer Tech
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </Link>
-              <Link href="/maker" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-purple-400 text-neo-black font-bold text-sm rounded-full transition-all font-display tracking-wider hover:bg-purple-300 w-full sm:w-auto group">
+              <a href="https://boxpox-2.myshopify.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-purple-400 text-neo-black font-bold text-sm rounded-full transition-all font-display tracking-wider hover:bg-purple-300 w-full sm:w-auto group">
                 <Palette size={16} />
-                Custom & Gifts
+                Shop Products
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
+              </a>
             </div>
           </div>
         </div>
@@ -131,8 +131,8 @@ export default function Home() {
               </div>
             </Link>
 
-            {/* MAKER */}
-            <Link href="/maker" className="group block">
+            {/* MAKER — links to Shopify store */}
+            <a href="https://boxpox-2.myshopify.com" target="_blank" rel="noopener noreferrer" className="group block">
               <div className="rounded-2xl border border-purple-400/15 hover:border-purple-400/40 bg-neo-gray/30 p-6 lg:p-8 h-full transition-all duration-500 hover:-translate-y-1">
                 <div className="flex items-center gap-3 mb-5">
                   <div className="w-11 h-11 rounded-xl bg-purple-400/10 flex items-center justify-center text-purple-400 group-hover:bg-purple-400 group-hover:text-neo-black transition-all">
@@ -140,11 +140,11 @@ export default function Home() {
                   </div>
                   <div>
                     <h3 className="text-lg font-bold text-white font-display">Maker Studio</h3>
-                    <p className="text-purple-400 text-xs font-display tracking-wider">CUSTOM & BULK</p>
+                    <p className="text-purple-400 text-xs font-display tracking-wider">SHOP ON BOXPOX</p>
                   </div>
                 </div>
                 <p className="text-white/50 text-sm leading-relaxed mb-5">
-                  3D Printed Lamps, Keychains, Personalized Gifts, and Bulk Orders — shop or customize your own!
+                  3D Printed Lamps, Keychains, Personalized Gifts, and Bulk Orders — browse our full product catalog.
                 </p>
                 <div className="flex flex-wrap gap-1.5 mb-5">
                   {['3D Printing', 'Lamps', 'Gifts', 'Bulk Orders'].map(tag => (
@@ -152,11 +152,11 @@ export default function Home() {
                   ))}
                 </div>
                 <div className="flex items-center gap-2 text-purple-400 text-sm font-bold font-display">
-                  Browse Products
+                  Visit Shop
                   <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
                 </div>
               </div>
-            </Link>
+            </a>
           </div>
         </div>
 
@@ -223,9 +223,9 @@ export default function Home() {
                   Moon lamps, lithophanes, keychains, figurines and more. Perfect for personal gifts, corporate events, or bulk orders.
                 </p>
               </div>
-              <Link href="/maker" className="hidden sm:flex items-center gap-1 text-purple-400 text-xs font-bold font-display whitespace-nowrap flex-shrink-0">
+              <a href="https://boxpox-2.myshopify.com" target="_blank" rel="noopener noreferrer" className="hidden sm:flex items-center gap-1 text-purple-400 text-xs font-bold font-display whitespace-nowrap flex-shrink-0">
                 Shop now <ChevronRight size={14} />
-              </Link>
+              </a>
             </div>
           </div>
 

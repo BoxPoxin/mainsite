@@ -7,11 +7,16 @@ import { ArrowUpRight, MapPin, Mail, Phone, ArrowRight } from 'lucide-react';
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
-  const footerLinks = {
+  const footerLinks: {
+    studios: { label: string; href: string; external?: boolean }[];
+    company: { label: string; href: string }[];
+    support: { label: string; href: string }[];
+    legal: { label: string; href: string }[];
+  } = {
     studios: [
       { label: 'Pro — Engineering', href: '/pro' },
       { label: 'Labs — Consumer Tech', href: '/labs' },
-      { label: 'Maker — Custom & Bulk', href: '/maker' },
+      { label: 'Maker — Shop Products', href: 'https://boxpox-2.myshopify.com', external: true },
       { label: 'All Products', href: '/products' },
     ],
     company: [
@@ -55,10 +60,10 @@ export default function Footer() {
                   Labs
                   <ArrowRight size={16} />
                 </Link>
-                <Link href="/maker" className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-purple-400 text-neo-black font-bold text-sm rounded-full transition-all duration-300 font-display tracking-wider hover:bg-purple-300">
-                  Maker
+                <a href="https://boxpox-2.myshopify.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-purple-400 text-neo-black font-bold text-sm rounded-full transition-all duration-300 font-display tracking-wider hover:bg-purple-300">
+                  Shop
                   <ArrowRight size={16} />
-                </Link>
+                </a>
               </div>
             </div>
           </div>
@@ -94,10 +99,17 @@ export default function Footer() {
                 <ul className="space-y-3">
                   {footerLinks.studios.map((link) => (
                     <li key={link.label}>
-                      <Link href={link.href} className="text-white/40 hover:text-neo-yellow transition-colors text-sm inline-flex items-center gap-1 group">
-                        {link.label}
-                        <ArrowUpRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity" />
-                      </Link>
+                      {link.external ? (
+                        <a href={link.href} target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-neo-yellow transition-colors text-sm inline-flex items-center gap-1 group">
+                          {link.label}
+                          <ArrowUpRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+                        </a>
+                      ) : (
+                        <Link href={link.href} className="text-white/40 hover:text-neo-yellow transition-colors text-sm inline-flex items-center gap-1 group">
+                          {link.label}
+                          <ArrowUpRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+                        </Link>
+                      )}
                     </li>
                   ))}
                 </ul>
@@ -139,7 +151,7 @@ export default function Footer() {
                 <ul className="space-y-3">
                   <li className="flex items-start gap-3 text-white/40 text-sm">
                     <MapPin size={16} className="text-neo-yellow mt-0.5 flex-shrink-0" />
-                    <span>1617 Sector 70<br />Mohali, 160071</span>
+                    <span>D-180, Phase 8B, Industrial Area<br />Sector 74, SAS Nagar, Punjab 160055</span>
                   </li>
                   <li className="flex items-center gap-3 text-white/40 text-sm">
                     <Phone size={16} className="text-neo-yellow flex-shrink-0" />

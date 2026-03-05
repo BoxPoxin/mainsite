@@ -2,18 +2,18 @@
 
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-import { Home, CircuitBoard, Palette, Cpu } from 'lucide-react';
+import { Home, CircuitBoard, Palette, Cpu, ShoppingBag } from 'lucide-react';
 
 export default function MobileBottomNav() {
   const pathname = usePathname();
 
-  if (pathname.startsWith('/admin') || pathname.startsWith('/signin') || pathname.startsWith('/signup') || pathname.startsWith('/auth')) return null;
+  if (pathname.startsWith('/admin')) return null;
 
   const navItems = [
-    { href: '/', icon: Home, label: 'Home', isActive: pathname === '/' },
-    { href: '/pro', icon: CircuitBoard, label: 'Pro', isActive: pathname === '/pro' },
-    { href: '/labs', icon: Cpu, label: 'Labs', isActive: pathname === '/labs' },
-    { href: '/maker', icon: Palette, label: 'Maker', isActive: pathname === '/maker' },
+    { href: '/', icon: Home, label: 'Home', isActive: pathname === '/', external: false },
+    { href: '/pro', icon: CircuitBoard, label: 'Pro', isActive: pathname === '/pro', external: false },
+    { href: '/labs', icon: Cpu, label: 'Labs', isActive: pathname === '/labs', external: false },
+    { href: 'https://boxpox-2.myshopify.com', icon: ShoppingBag, label: 'Shop', isActive: false, external: true },
   ];
 
   return (
@@ -23,13 +23,27 @@ export default function MobileBottomNav() {
         <div className="flex items-center justify-evenly px-1 py-2 max-w-md mx-auto">
           {navItems.map((item) => {
             const Icon = item.icon;
-            return (
+            const className = `relative flex flex-col items-center justify-center w-16 py-1.5 rounded-xl transition-all active:scale-95 ${
+              item.isActive ? 'text-neo-yellow bg-neo-yellow/10' : 'text-white/50'
+            }`;
+            return item.external ? (
+              <a
+                key={item.href}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={className}
+              >
+                <Icon size={20} strokeWidth={item.isActive ? 2.5 : 1.5} />
+                <span className={`text-[9px] font-semibold mt-0.5 ${item.isActive ? 'text-neo-yellow' : 'text-white/40'}`}>
+                  {item.label}
+                </span>
+              </a>
+            ) : (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`relative flex flex-col items-center justify-center w-16 py-1.5 rounded-xl transition-all active:scale-95 ${
-                  item.isActive ? 'text-neo-yellow bg-neo-yellow/10' : 'text-white/50'
-                }`}
+                className={className}
               >
                 <Icon size={20} strokeWidth={item.isActive ? 2.5 : 1.5} />
                 <span className={`text-[9px] font-semibold mt-0.5 ${item.isActive ? 'text-neo-yellow' : 'text-white/40'}`}>
